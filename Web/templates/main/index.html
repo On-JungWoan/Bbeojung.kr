@@ -197,7 +197,7 @@
                                     <div class="col-lg-3 col-md-3 col-12 p-0">
                                         <div class="search-input">
                                             <label for="location"><i class="lni lni-map-marker theme-color"></i></label>
-                                            <select name="location" id="location">
+                                            <select name="location" id="location" onchange="changeitem()">
                                                 <option value="none" selected disabled>소재지</option>
                                                 <option value="동구">동구</option>
                                                 <option value="서구">서구</option>
@@ -206,17 +206,22 @@
                                                 <option value="광산구">광산구</option>
                                             </select>
                                         </div>
+                                        <script>
+                                            function changeitem(){
+                                                var item = document.getElementById("location");
+                                                var itemID = item.options[item.selectedIndex].value;
+                                            }
+                                        </script>
+                                    </div>
+                                    <div>
+                                        {{ bus.0 }}
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-12 p-0">
-                                        <div class="search-input">
+                                        <div  class="search-input">
                                             <label for="category"><i class="lni lni-grid-alt theme-color"></i></label>
                                             <select name="category" id="category">
-                                                <option value="none" selected disabled>정류장명</option>
-                                                <option value="전남대스포츠센터">전남대스포츠센터</option>
-                                                <option value="전남대스포츠센터">전남대스포츠센터</option>
-                                                <option value="전남대스포츠센터">전남대스포츠센터</option>
-                                                <option value="전남대스포츠센터">전남대스포츠센터</option>
-                                                <option value="전남대스포츠센터">전남대스포츠센터</option>
+                                                    <option value="none" selected disabled>정류장명</option>
+                                                    <option value="전남대스포츠센터">전남대 스포츠 센터</option>
                                             </select>
                                         </div>
                                     </div>

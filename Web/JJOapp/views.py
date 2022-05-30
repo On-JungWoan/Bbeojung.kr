@@ -13,9 +13,14 @@ import joblib
 #
 import datetime # 날짜시간 모듈
 from datetime import date, datetime, timedelta
+from .models import mean_sum, congestion, distance, population, Label, BusInfo
 
 def index(request):
-    return render(request, "main/index.html")
+    BusInfo.objects.all()
+    context = {
+        'bus' : BusInfo
+    }
+    return render(request, "main/index.html", context)
 
 
 #
