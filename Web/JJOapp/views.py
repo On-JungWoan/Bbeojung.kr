@@ -19,7 +19,10 @@ def index(request):
 
 
 #
-def predict_output(request, ars_id, route):
+def predict_output(request):
+    if request.method == 'POST':
+        station = request.POST.getlist('category')
+        route = request.POST.getlist('keyword')
 
     # weekday one-hot encoding
     weekday=[0,0,0,0,0,0,0]
@@ -31,4 +34,9 @@ def predict_output(request, ars_id, route):
     else :
         weekend = 0
 
-    return render(request, 'detail/index.html')
+    context = {
+        'station' : station,
+        'route' : route
+    }
+
+    return render(request, 'detail/index.html', context)
