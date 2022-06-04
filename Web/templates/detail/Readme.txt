@@ -1,6 +1,6 @@
 Thanks for downloading this template!
 
-Template Name: Dashio
-Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-Author: TemplateMag.com
-License: https://templatemag.com/license/
+Template Name: NiceAdmin
+Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+Author: BootstrapMade.com
+License: https://bootstrapmade.com/license/

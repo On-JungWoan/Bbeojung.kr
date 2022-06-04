@@ -1,614 +1,994 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Dashboard">
-  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'detail/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'detail/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Bootstrap core CSS -->
-  <link href="{% static 'detail/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <!--external css-->
-  <link href="{% static 'detail/lib/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="{% static 'detail/css/zabuto_calendar.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'detail/lib/gritter/css/jquery.gritter.css' %}" />
-  <!-- Custom styles for this template -->
-  <link href="{% static 'detail/css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'detail/css/style-responsive.css' %}" rel="stylesheet">
-  <script src="{% static 'detail/lib/chart-master/Chart.js' %}"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/detail/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/detail/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/detail/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/detail/assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static '/detail/assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static '/detail/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/detail/assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '/detail/assets/css/style.css' %}" rel="stylesheet">
 
   <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
+  * Template Name: NiceAdmin - v2.2.2
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
-  <section id="container">
-    <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-    <!--header start-->
-    <header class="header black-bg">
-      <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-      </div>
-      <!--logo start-->
-      <a href="{% url 'JJOapp:main' %}" class="logo"><b>DASH<span>IO</span></b></a>
-      <!--logo end-->
-      <div class="nav notify-row" id="top_menu">
-        <!--  notification start -->
-        <!--  notification end -->
-      </div>
-      <div class="top-menu">
-        <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
-        </ul>
-      </div>
-    </header>
-    <!--header end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-    <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-          {% if dist == "동구" %}
-            <p class="centered"><a href="https://www.donggu.kr/"><img src="{% static 'detail/img/Donggu.jpg' %}" class="" width="100"></a></p>
-          {% elif dist == "서구" %}
-            <p class="centered"><a href="https://www.seogu.gwangju.kr/"><img src="{% static 'detail/img/Seogu.jpg' %}" class="" width="100"></a></p>
-          {% elif dist == "남구" %}
-            <p class="centered"><a href="https://www.namgu.gwangju.kr/"><img src="{% static 'detail/img/Namgu.jpg' %}" class="" width="100"></a></p>
-          {% elif dist == "북구" %}
-            <p class="centered"><a href="https://bukgu.gwangju.kr/"><img src="{% static 'detail/img/Bukgu.jpg' %}" class="" width="100"></a></p>
-          {% elif dist == "광산구" %}
-            <p class="centered"><a href="https://www.gwangsan.go.kr/"><img src="{% static 'detail/img/Gwangsangu.jpg' %}" class="" width="100"></a></p>
-          {% endif %}
 
-          <h3 class="centered"><strong>{{ dist }}</strong></h3>
-          <h5 class="centered"><strong>{{ station }}</strong></h5>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
 
-            <li class="sub-menu">
-              <a href="javascript:;">
-                  <i class="fa fa-desktop"></i>
-                  <span>버스 노선 선택</span>
-              </a>
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="{% url 'JJOapp:main' %}" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Bus Predict Service</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
 
-            {% for b in bus|dictsort:'r' %}
-              {% ifchanged %}
-                <ul class="sub">
-                  <li><a href="{% url 'JJOapp:info' b.dist b.name b.r %}">{{ b.r }}</a></li>
-                </ul>
-              {% endifchanged %}
-            {% endfor %}
-            </li>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        <div class="row">
-          <div class="col-lg-9 main-chart">
-            <!--CUSTOM CHART START -->
-            <div class="border-head">
-              <h3><strong>시간별 예상 승차인원</strong></h3>
-            </div>
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="{% url 'JJOapp:search'%}">
+        {%csrf_token%}
+        <input type="text" name="query" placeholder="정류장명 입력" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
 
-            <div class="custom-bar-chart">
-              <ul class="y-axis">
-                <li><span>10.000</span></li>
-                <li><span>8.000</span></li>
-                <li><span>6.000</span></li>
-                <li><span>4.000</span></li>
-                <li><span>2.000</span></li>
-                <li><span>0</span></li>
-              </ul>
-              <div class="bar">
-                <div class="title">06~08시</div>
-                <div class="value tooltips" data-original-title="8.500" data-toggle="tooltip" data-placement="top">85%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">08~10시</div>
-                <div class="value tooltips" data-original-title="5.000" data-toggle="tooltip" data-placement="top">50%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">10~12시</div>
-                <div class="value tooltips" data-original-title="6.000" data-toggle="tooltip" data-placement="top">60%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">12~14시</div>
-                <div class="value tooltips" data-original-title="4.500" data-toggle="tooltip" data-placement="top">45%</div>
-              </div>
-              <div class="bar">
-                <div class="title">16~18시</div>
-                <div class="value tooltips" data-original-title="3.200" data-toggle="tooltip" data-placement="top">32%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">18~20시</div>
-                <div class="value tooltips" data-original-title="{{ predict }}" data-toggle="tooltip" data-placement="top">{{ predict|stringformat:"i" }}%</div>
-              </div>
-              <div class="bar">
-                <div class="title">20~22시</div>
-                <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
-              </div>
-            </div>
-            <!--custom chart end-->
-            <div class="row mt">
-              <!-- SERVER STATUS PANELS -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="grey-panel pn donut-chart">
-                  <div class="grey-header">
-                    <h5>18~20시 혼잡도</h5>
-                  </div>
-                  <canvas id="serverstatus01" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 70,
-                        color: "#FF6B6B"
-                      },
-                      {
-                        value: 30,
-                        color: "#fdfdfd"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <div class="row">
-                    <div class="col-sm-6 col-xs-6 goleft">
-                      <p>정류장<br/>혼잡도:</p>
-                    </div>
-                    <div class="col-sm-6 col-xs-6">
-                      <h2>61%</h2>
-                    </div>
-                  </div>
-                </div>
-                <!-- /grey-panel -->
-              </div>
-              <!-- /col-md-4-->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                  <div class="darkblue-header">
-                    <h5>온도 / 습도</h5>
-                  </div>
-                  <canvas id="serverstatus02" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 60,
-                        color: "#1c9ca7"
-                      },
-                      {
-                        value: 40,
-                        color: "#f68275"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <p>April 17, 2014</p>
-                  <footer>
-                    <div class="pull-left">
-                      <h5><i class="fa fa-hdd-o"></i> 32.5 C</h5>
-                    </div>
-                    <div class="pull-right">
-                      <h5>78%</h5>
-                    </div>
-                  </footer>
-                </div>
-                <!--  /darkblue panel -->
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 col-sm-4 mb">
-                <!-- REVENUE PANEL -->
-                <div class="green-panel pn">
-                  <div class="green-header">
-                    <h5>REVENUE</h5>
-                  </div>
-                  <div class="chart mt">
-                    <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
-                  </div>
-                  <p class="mt"><b>$ 17,980</b><br/>Month Income</p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
-            <div class="row">
-              <!-- WEATHER PANEL -->
-              <div class="col-md-4 mb">
-                <div class="weather pn">
-                  <i class="fa fa-cloud fa-4x"></i>
-                  <h2>11º C</h2>
-                  <h4>BUDAPEST</h4>
-                </div>
-              </div>
-              <!-- /col-md-4-->
-              <!-- DIRECT MESSAGE PANEL -->
-              <div class="col-md-8 mb">
-                <div class="message-p pn">
-                  <div class="message-header">
-                    <h5>DIRECT MESSAGE</h5>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 centered hidden-sm hidden-xs">
-                      <img src="{% static 'detail/img/ui-danro.' %}" class="img-circle" width="65">
-                    </div>
-                    <div class="col-md-9">
-                      <p>
-                        <name>Dan Rogers</name>
-                        sent you a message.
-                      </p>
-                      <p class="small">3 hours ago</p>
-                      <p class="message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                      <form class="form-inline" role="form">
-                        <div class="form-group">
-                          <input type="text" class="form-control" id="exampleInputText" placeholder="Reply Dan">
-                        </div>
-                        <button type="submit" class="btn btn-default">Send</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- /Message Panel-->
-              </div>
-              <!-- /col-md-8  -->
-            </div>
-            <div class="row">
-              <!-- TWITTER PANEL -->
-              <div class="col-md-4 mb">
-                <div class="twitter-panel pn">
-                  <i class="fa fa-twitter fa-4x"></i>
-                  <p>Dashio is here! Take a look and enjoy this new Bootstrap Dashboard theme.</p>
-                  <p class="user">@Alvrz_is</p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 mb">
-                <!-- WHITE PANEL - TOP USER -->
-                <div class="white-panel pn">
-                  <div class="white-header">
-                    <h5>TOP USER</h5>
-                  </div>
-                  <p><img src="{% static 'detail/img/ui-zac.jpg' %}" class="img-circle" width="50"></p>
-                  <p><b>Zac Snider</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p class="small mt">MEMBER SINCE</p>
-                      <p>2012</p>
-                    </div>
-                    <div class="col-md-6">
-                      <p class="small mt">TOTAL SPEND</p>
-                      <p>$ 47,60</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 mb">
-                <!-- INSTAGRAM PANEL -->
-                <div class="instagram-panel pn">
-                  <i class="fa fa-instagram fa-4x"></i>
-                  <p>@THISISYOU<br/> 5 min. ago
-                  </p>
-                  <p><i class="fa fa-comment"></i> 18 | <i class="fa fa-heart"></i> 49</p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
-            <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                <div class="product-panel-2 pn">
-                  <div class="badge badge-hot">HOT</div>
-                  <img src="{% static 'detail/img/product.jpg' %}" width="200" alt="">
-                  <h5 class="mt">Flat Pack Heritage</h5>
-                  <h6>TOTAL SALES: 1388</h6>
-                  <button class="btn btn-small btn-theme04">FULL REPORT</button>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-              <!--  PROFILE 02 PANEL -->
-              <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                <div class="content-panel pn">
-                  <div id="profile-02">
-                    <div class="user">
-                      <img src="{% static 'detail/img/friends/fr-06.jpg' %}" class="img-circle" width="80">
-                      <h4>DJ SHERMAN</h4>
-                    </div>
-                  </div>
-                  <div class="pr2-social centered">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                  </div>
-                </div>
-                <!-- /panel -->
-              </div>
-              <!--/ col-md-4 -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="green-panel pn">
-                  <div class="green-header">
-                    <h5>DISK SPACE</h5>
-                  </div>
-                  <canvas id="serverstatus03" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 60,
-                        color: "#2b2b2b"
-                      },
-                      {
-                        value: 40,
-                        color: "#fffffd"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <h3>60% USED</h3>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
-          </div>
-          <!-- /col-lg-9 END SECTION MIDDLE -->
-          <!-- **********************************************************************************************************************************************************
-              RIGHT SIDEBAR CONTENT
-              *********************************************************************************************************************************************************** -->
-          <div class="col-lg-3 ds mb-3">
-            <!--COMPLETED ACTIONS DONUTS CHART-->
-            <div class="donut-main">
-              <h4>{{station}}</h4>
-              <h1><strong>{{route}}</strong></h1>
-              <span><strong>ARS ID</strong><br>
-                {% for b in bus %}
-                  {% if b.r == route %}
-                    {{ b.i }}
-                  {% endif %}
-                {% endfor %}
-              </span>
-            </div>
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
 
-            <!-- RECENT ACTIVITIES SECTION -->
-            <h4 class="centered mt">RECENT ACTIVITY</h4>
-            <!-- First Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>Just Now</muted>
-                  <br/>
-                  <a href="#">Paul Rudd</a> purchased an item.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- Second Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>2 Minutes Ago</muted>
-                  <br/>
-                  <a href="#">James Brown</a> subscribed to your newsletter.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- Third Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>3 Hours Ago</muted>
-                  <br/>
-                  <a href="#">Diana Kennedy</a> purchased a year subscription.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- Fourth Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>7 Hours Ago</muted>
-                  <br/>
-                  <a href="#">Brando Page</a> purchased a year subscription.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- USERS ONLINE SECTION -->
-            <h4 class="centered mt">TEAM MEMBERS ONLINE</h4>
-            <!-- First Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="{% static 'detail/img/ui-divya.jpg' %}" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">DIVYA MANIAN</a><br/>
-                  <muted>Available</muted>
-                </p>
-              </div>
-            </div>
-            <!-- Second Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="{% static 'detail/img/ui-sherman.jpg' %}" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">DJ SHERMAN</a><br/>
-                  <muted>I am Busy</muted>
-                </p>
-              </div>
-            </div>
-            <!-- Third Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="{% static 'detail/img/ui-danro.jpg' %}" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">DAN ROGERS</a><br/>
-                  <muted>Available</muted>
-                </p>
-              </div>
-            </div>
-            <!-- Fourth Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="{% static 'detail/img/ui-zac.jpg' %}" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">Zac Sniders</a><br/>
-                  <muted>Available</muted>
-                </p>
-              </div>
-            </div>
-            <!-- CALENDAR-->
-            <div id="calendar" class="mb">
-              <div class="panel green-panel no-margin">
-                <div class="panel-body">
-                  <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                    <div class="arrow"></div>
-                    <h3 class="popover-title" style="disadding: none;"></h3>
-                    <div id="date-popover-content" class="popover-content"></div>
-                  </div>
-                  <div id="my-calendar"></div>
-                </div>
-              </div>
-            </div>
-            <!-- / calendar -->
-          </div>
-          <!-- /col-lg-3 -->
-        </div>
-        <!-- /row -->
-      </section>
-    </section>
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="index.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
           </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>Lorem Ipsum</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>30 min. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-x-circle text-danger"></i>
+              <div>
+                <h4>Atque rerum nesciunt</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>1 hr. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Sit rerum fuga</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>2 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Dicta reprehenderit</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">3</span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+            <li class="dropdown-header">
+              You have 3 new messages
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>Maria Hudson</h4>
+                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>4 hrs. ago</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>Anna Nelson</h4>
+                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>6 hrs. ago</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>David Muldon</h4>
+                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                  <p>8 hrs. ago</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="dropdown-footer">
+              <a href="#">Show all messages</a>
+            </li>
+
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Kevin Anderson</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-heading">버스 선택</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#Dong-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>{{ station }}</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="Dong-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          {% for b in bus|dictsort:'r' %}
+            {% if b.name == station %}
+            {% ifchanged %}
+              <li>
+                <a href="{% url 'JJOapp:info' dist station b.r %}">
+                  <i class="bi bi-circle"></i><span>{{ b.r }}</span>
+                </a>
+              </li>
+            {% endifchanged %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li><!-- End Components Nav -->
+
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-faq.html">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>{{ station }}</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'JJOapp:info' dist station route %}">{{ route }}</a></li>
+          <li class="breadcrumb-item active">ARS_ID {{ id }}</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-8">
+          <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Sales <span>| Today</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>145</h6>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>$3,264</h6>
+                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+            <div class="col-xxl-4 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Total <span>| {{ route }}</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{ sum_ }}명</h6>
+                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+
+            <!-- Reports -->
+            <div class="col-12">
+              <div class="card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">시간별 예상 승차인원<span> /{{ route }}</span></h5>
+
+                  <!-- Line Chart -->
+                  <div id="reportsChart"></div>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#reportsChart"), {
+                        series: [{
+                          name: '승차인원',
+                          data: {{ predict }}
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'area',
+                          toolbar: {
+                            show: false
+                          },
+                        },
+                        markers: {
+                          size: 4
+                        },
+                        colors: ['#4154f1'],
+                        fill: {
+                          type: "gradient",
+                          gradient: {
+                            shadeIntensity: 1,
+                            opacityFrom: 0.3,
+                            opacityTo: 0.4,
+                            stops: [0, 90, 100]
+                          }
+                        },
+                        dataLabels: {
+                          enabled: true
+                        },
+                        stroke: {
+                          curve: 'smooth',
+                          width: 2
+                        },
+                        xaxis: {
+                          type: 'category',
+                          categories: [
+                          '6~8시', '8~10시', '10~12시', '12~14시', '14~16시', '16~18시', '18~20시', '20~22시', '22~24시'
+                          ]
+                        },
+                        tooltip: {
+                          x: {
+                            format: 'dd/MM/yy HH:mm'
+                          },
+                        }
+                      }).render();
+                    });
+                  </script>
+                  <!-- End Line Chart -->
+
+                </div>
+
+              </div>
+            </div><!-- End Reports -->
+
+            <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#">#2457</a></th>
+                        <td>Brandon Jacob</td>
+                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
+                        <td>$64</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#2147</a></th>
+                        <td>Bridie Kessler</td>
+                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
+                        <td>$47</td>
+                        <td><span class="badge bg-warning">Pending</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#2049</a></th>
+                        <td>Ashleigh Langosh</td>
+                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
+                        <td>$147</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#2644</a></th>
+                        <td>Angus Grady</td>
+                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
+                        <td>$67</td>
+                        <td><span class="badge bg-danger">Rejected</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#2644</a></th>
+                        <td>Raheem Lehner</td>
+                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
+                        <td>$165</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+
+            <!-- Top Selling -->
+            <div class="col-12">
+              <div class="card top-selling overflow-auto">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body pb-0">
+                  <h5 class="card-title">Top Selling <span>| Today</span></h5>
+
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Sold</th>
+                        <th scope="col">Revenue</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
+                        <td>$64</td>
+                        <td class="fw-bold">124</td>
+                        <td>$5,828</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
+                        <td>$46</td>
+                        <td class="fw-bold">98</td>
+                        <td>$4,508</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
+                        <td>$59</td>
+                        <td class="fw-bold">74</td>
+                        <td>$4,366</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
+                        <td>$32</td>
+                        <td class="fw-bold">63</td>
+                        <td>$2,016</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
+                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
+                        <td>$79</td>
+                        <td class="fw-bold">41</td>
+                        <td>$3,239</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Top Selling -->
+
+          </div>
+        </div><!-- End Left side columns -->
+
+        <!-- Right side columns -->
+        <div class="col-lg-4">
+
+          <!-- Recent Activity -->
+          <div class="card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+
+              <div class="activity">
+
+                <div class="activity-item d-flex">
+                  <div class="activite-label">32 min</div>
+                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                  <div class="activity-content">
+                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                  </div>
+                </div><!-- End activity item-->
+
+                <div class="activity-item d-flex">
+                  <div class="activite-label">56 min</div>
+                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                  <div class="activity-content">
+                    Voluptatem blanditiis blanditiis eveniet
+                  </div>
+                </div><!-- End activity item-->
+
+                <div class="activity-item d-flex">
+                  <div class="activite-label">2 hrs</div>
+                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                  <div class="activity-content">
+                    Voluptates corrupti molestias voluptatem
+                  </div>
+                </div><!-- End activity item-->
+
+                <div class="activity-item d-flex">
+                  <div class="activite-label">1 day</div>
+                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                  <div class="activity-content">
+                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
+                  </div>
+                </div><!-- End activity item-->
+
+                <div class="activity-item d-flex">
+                  <div class="activite-label">2 days</div>
+                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                  <div class="activity-content">
+                    Est sit eum reiciendis exercitationem
+                  </div>
+                </div><!-- End activity item-->
+
+                <div class="activity-item d-flex">
+                  <div class="activite-label">4 weeks</div>
+                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                  <div class="activity-content">
+                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                  </div>
+                </div><!-- End activity item-->
+
+              </div>
+
+            </div>
+          </div><!-- End Recent Activity -->
+
+          <!-- Budget Report -->
+          <div class="card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body pb-0">
+              <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+
+              <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
+                    legend: {
+                      data: ['Allocated Budget', 'Actual Spending']
+                    },
+                    radar: {
+                      // shape: 'circle',
+                      indicator: [{
+                          name: 'Sales',
+                          max: 6500
+                        },
+                        {
+                          name: 'Administration',
+                          max: 16000
+                        },
+                        {
+                          name: 'Information Technology',
+                          max: 30000
+                        },
+                        {
+                          name: 'Customer Support',
+                          max: 38000
+                        },
+                        {
+                          name: 'Development',
+                          max: 52000
+                        },
+                        {
+                          name: 'Marketing',
+                          max: 25000
+                        }
+                      ]
+                    },
+                    series: [{
+                      name: 'Budget vs spending',
+                      type: 'radar',
+                      data: [{
+                          value: [4200, 3000, 20000, 35000, 50000, 18000],
+                          name: 'Allocated Budget'
+                        },
+                        {
+                          value: [5000, 14000, 28000, 26000, 42000, 21000],
+                          name: 'Actual Spending'
+                        }
+                      ]
+                    }]
+                  });
+                });
+              </script>
+
+            </div>
+          </div><!-- End Budget Report -->
+
+          <!-- Website Traffic -->
+          <div class="card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body pb-0">
+              <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+
+              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  echarts.init(document.querySelector("#trafficChart")).setOption({
+                    tooltip: {
+                      trigger: 'item'
+                    },
+                    legend: {
+                      top: '5%',
+                      left: 'center'
+                    },
+                    series: [{
+                      name: 'Access From',
+                      type: 'pie',
+                      radius: ['40%', '70%'],
+                      avoidLabelOverlap: false,
+                      label: {
+                        show: false,
+                        position: 'center'
+                      },
+                      emphasis: {
+                        label: {
+                          show: true,
+                          fontSize: '18',
+                          fontWeight: 'bold'
+                        }
+                      },
+                      labelLine: {
+                        show: false
+                      },
+                      data: [{
+                          value: 1048,
+                          name: 'Search Engine'
+                        },
+                        {
+                          value: 735,
+                          name: 'Direct'
+                        },
+                        {
+                          value: 580,
+                          name: 'Email'
+                        },
+                        {
+                          value: 484,
+                          name: 'Union Ads'
+                        },
+                        {
+                          value: 300,
+                          name: 'Video Ads'
+                        }
+                      ]
+                    }]
+                  });
+                });
+              </script>
+
+            </div>
+          </div><!-- End Website Traffic -->
+
+          <!-- News & Updates Traffic -->
+          <div class="card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body pb-0">
+              <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
+
+              <div class="news">
+                <div class="post-item clearfix">
+                  <img src="assets/img/news-1.jpg" alt="">
+                  <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
+                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/news-2.jpg" alt="">
+                  <h4><a href="#">Quidem autem et impedit</a></h4>
+                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/news-3.jpg" alt="">
+                  <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
+                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/news-4.jpg" alt="">
+                  <h4><a href="#">Laborum corporis quo dara net para</a></h4>
+                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/news-5.jpg" alt="">
+                  <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
+                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+            </div>
+          </div><!-- End News & Updates -->
+
+        </div><!-- End Right side columns -->
+
       </div>
-    </footer>
-    <!--footer end-->
-  </section>
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="{% static 'detail/lib/jquery/jquery.min.js' %}"></script>
+    </section>
 
-  <script src="{% static 'detail/lib/bootstrap/js/bootstrap.min.js' %}"></script>
-  <script class="include" type="text/javascript" src="{% static 'detail/lib/jquery.dcjqaccordion.2.7.js' %}"></script>
-  <script src="{% static 'detail/lib/jquery.scrollTo.min.js' %}"></script>
-  <script src="{% static 'detail/lib/jquery.nicescroll.js' %}" type="text/javascript"></script>
-  <script src="{% static 'detail/lib/jquery.sparkline.js' %}"></script>
-  <!--common script for all pages-->
-  <script src="{% static 'detail/lib/common-scripts.js' %}"></script>
-  <script type="text/javascript" src="{% static 'detail/lib/gritter/js/jquery.gritter.js' %}"></script>
-  <script type="text/javascript" src="{% static 'detail/lib/gritter-conf.js' %}"></script>
-  <!--script for this page-->
-  <script src="{% static 'detail/lib/sparkline-chart.js' %}"></script>
-  <script src="{% static 'detail/lib/zabuto_calendar.js' %}"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var unique_id = $.gritter.add({
-        // (string | mandatory) the heading of the notification
-        title: 'Welcome to Dashio!',
-        // (string | mandatory) the text inside the notification
-        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-        // (string | optional) the image to display on the left
-        image: 'img/ui-sam.jpg',
-        // (bool | optional) if you want it to fade out on its own or just sit there
-        sticky: false,
-        // (int | optional) the time you want it to be alive for before fading out
-        time: 8000,
-        // (string | optional) the class name you want to apply to that specific message
-        class_name: 'my-sticky-class'
-      });
+  </main><!-- End #main -->
 
-      return false;
-    });
-  </script>
-  <script type="application/javascript">
-    $(document).ready(function() {
-      $("#date-popover").popover({
-        html: true,
-        trigger: "manual"
-      });
-      $("#date-popover").hide();
-      $("#date-popover").click(function(e) {
-        $(this).hide();
-      });
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
 
-      $("#my-calendar").zabuto_calendar({
-        action: function() {
-          return myDateFunction(this.id, false);
-        },
-        action_nav: function() {
-          return myNavFunction(this.id);
-        },
-        ajax: {
-          url: "show_data.php?action=1",
-          modal: true
-        },
-        legend: [{
-            type: "text",
-            label: "Special event",
-            badge: "00"
-          },
-          {
-            type: "block",
-            label: "Regular event",
-          }
-        ]
-      });
-    });
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    function myNavFunction(id) {
-      $("#date-popover").hide();
-      var nav = $("#" + id).data("navigation");
-      var to = $("#" + id).data("to");
-      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-    }
-  </script>
+  <!-- Vendor JS Files -->
+  <script src="{% static '/detail/assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static '/detail/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static '/detail/assets/vendor/chart.js/chart.min.js' %}"></script>
+  <script src="{% static '/detail/assets/vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static '/detail/assets/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static '/detail/assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static '/detail/assets/vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static '/detail/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static '/detail/assets/js/main.js' %}"></script>
+
 </body>
 
 </html>
