@@ -3,8 +3,8 @@
 # import requests, bs4
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 # django.setup()
-# from JJOapp.Map_grid import mapToGrid
-# from JJOapp.models import Bus_stop, WeatherDB
+# from bus.Map_grid import mapToGrid
+# from bus.models import Bus_stop, WeatherDB
 # from urllib.parse import urlencode, quote_plus, unquote
 # import datetime # 날짜시간 모듈
 # from datetime import date, datetime, timedelta
