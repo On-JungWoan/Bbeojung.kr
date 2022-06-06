@@ -126,7 +126,7 @@ def info(request, dist, id_, route):
 
     predict_list = []
     for i in range( 6, 23, 2 ):
-        path = 'D:/python_projects/BusStopCongestionProject/Model/'+ str(i) + '_' + str(i+1) + '_model_pycaret.pkl'
+        path = '../../Model/'+ str(i) + '_' + str(i+1) + '_model_pycaret.pkl'
         predict_list.append( int(joblib.load(path).predict(feature)[0]) )
 
     context = {
@@ -241,7 +241,7 @@ def detail(request):
 
     predict_list = []
     for i in range( 6, 23, 2 ):
-        path = 'D:/python_projects/BusStopCongestionProject/Model/'+ str(i) + '_' + str(i+1) + '_model_pycaret.pkl'
+        path = '../../Model/' + str(i) + '_' + str(i + 1) + '_model_pycaret.pkl'
         predict_list.append( int(joblib.load(path).predict(feature)[0]) )
 
     context = {
@@ -356,7 +356,7 @@ def search(request):
 
     predict_list = []
     for i in range( 6, 23, 2 ):
-        path = 'D:/python_projects/BusStopCongestionProject/Model/'+ str(i) + '_' + str(i+1) + '_model_pycaret.pkl'
+        path = '../../Model/' + str(i) + '_' + str(i + 1) + '_model_pycaret.pkl'
         predict_list.append( int(joblib.load(path).predict(feature)[0]) )
 
     context = {
