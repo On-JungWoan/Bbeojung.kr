@@ -3,62 +3,62 @@ from django.db import models
 #mean_sum
 class r_mean_sum(models.Model):
     idx = models.AutoField(primary_key=True)
-    r = models.CharField(max_length=200, blank=True, null=True)
-    r_m = models.FloatField(blank=True, null=True)
-    r_s = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    m = models.FloatField(blank=True, null=True)
+    s = models.FloatField(blank=True, null=True)
 
 class i_mean_sum(models.Model):
     idx = models.AutoField(primary_key=True)
-    i = models.CharField(max_length=200, blank=True, null=True)
-    i_m = models.FloatField(blank=True, null=True)
-    i_s = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    m = models.FloatField(blank=True, null=True)
+    s = models.FloatField(blank=True, null=True)
 
 class w_mean_sum(models.Model):
     idx = models.AutoField(primary_key=True)
-    w = models.CharField(max_length=200, blank=True, null=True)
-    w_m = models.FloatField(blank=True, null=True)
-    w_s = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    m = models.FloatField(blank=True, null=True)
+    s = models.FloatField(blank=True, null=True)
 
 class ri_mean_sum(models.Model):
     idx = models.AutoField(primary_key=True)
-    ri = models.CharField(max_length=200, blank=True, null=True)
-    ri_m = models.FloatField(blank=True, null=True)
-    ri_s = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    m = models.FloatField(blank=True, null=True)
+    s = models.FloatField(blank=True, null=True)
 
 class rw_mean_sum(models.Model):
     idx = models.AutoField(primary_key=True)
-    rw = models.CharField(max_length=200, blank=True, null=True)
-    rw_m = models.FloatField(blank=True, null=True)
-    rw_s = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    m = models.FloatField(blank=True, null=True)
+    s = models.FloatField(blank=True, null=True)
 
 class iw_mean_sum(models.Model):
     idx = models.AutoField(primary_key=True)
-    iw = models.CharField(max_length=200, blank=True, null=True)
-    iw_m = models.FloatField(blank=True, null=True)
-    iw_s = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    m = models.FloatField(blank=True, null=True)
+    s = models.FloatField(blank=True, null=True)
 
 class riw_mean_sum(models.Model):
     idx = models.AutoField(primary_key=True)
-    riw = models.CharField(max_length=200, blank=True, null=True)
-    riw_m = models.FloatField(blank=True, null=True)
-    riw_s = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    m = models.FloatField(blank=True, null=True)
+    s = models.FloatField(blank=True, null=True)
 
 
 #congestion
 class i_congestion(models.Model):
     idx = models.AutoField(primary_key=True)
-    i = models.CharField(max_length=200, blank=True, null=True)
-    i_con = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    con = models.FloatField(blank=True, null=True)
 
 class r_congestion(models.Model):
     idx = models.AutoField(primary_key=True)
-    r = models.CharField(max_length=200, blank=True, null=True)
-    r_con = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    con = models.FloatField(blank=True, null=True)
 
 class w_congestion(models.Model):
     idx = models.AutoField(primary_key=True)
-    w = models.CharField(max_length=200, blank=True, null=True)
-    w_con = models.FloatField(blank=True, null=True)
+    target = models.CharField(max_length=200, blank=True, null=True)
+    con = models.FloatField(blank=True, null=True)
 
 
 class distance(models.Model):

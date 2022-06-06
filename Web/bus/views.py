@@ -67,22 +67,31 @@ def info(request, dist, station, route):
     ri = route + '_' + id_
     iw = id_ + '_' + str(wd)
     riw = route + '_' + id_ + '_' + str(wd)
-    r_model = r_mean_sum.objects.filter( r = r )[0]
-    i_model = i_mean_sum.objects.filter( i = i )[0]
-    w_model = w_mean_sum.objects.filter( w = w )[0]
-    rw_model = rw_mean_sum.objects.filter( rw = rw )[0]
-    ri_model  = ri_mean_sum.objects.filter( ri = ri )[0]
-    iw_model  = iw_mean_sum.objects.filter( iw = iw )[0]
-    riw_model  = riw_mean_sum.objects.filter( riw = riw )[0]
 
-    mean_sum_list = [r_model.r_s, r_model.r_m, i_model.i_s, i_model.i_m, w_model.w_s, w_model.w_m, rw_model.rw_s,
-                     rw_model.rw_m, ri_model.ri_s, ri_model.ri_m, iw_model.iw_s, iw_model.iw_m, riw_model.riw_s, riw_model.riw_m
-                     ]
+    mean_sum_list = []
+    ms_model_list = [r_mean_sum, i_mean_sum, w_mean_sum, rw_mean_sum, ri_mean_sum, iw_mean_sum, riw_mean_sum]
+    ms_param_list = [r, i, w, rw, ri, iw, riw]
+
+    for i in range( len(ms_model_list) ):
+        try:
+            md = ms_model_list[i].objects.filter( target = ms_param_list[i] )[0]
+            mean_sum_list.append(md.s)
+            mean_sum_list.append(md.m)
+        except:
+            mean_sum_list.append(0)
+            mean_sum_list.append(0)
 
     #congestion
-    con_list = [
-        r_congestion.objects.filter(r=r)[0].r_con, i_congestion.objects.filter(i=i)[0].i_con, w_congestion.objects.filter(w=w)[0].w_con
-            ]
+    con_list = []
+    con_model_list = [r_congestion, i_congestion, w_congestion]
+    con_param_list = [r, i, w]
+
+    for i in range( len(con_model_list) ):
+        try:
+            md = con_model_list[i].objects.filter( target = con_param_list[i] )[0]
+            con_list.append(md.con)
+        except:
+            con_list.append(0)
 
     #population
     pop_list = [BusInfo.objects.filter(dong_name=dong_)[0].population]
@@ -127,7 +136,8 @@ def info(request, dist, station, route):
         'id' : id_,
         'bus' : BusInfo.objects.all(),
         'predict' : predict_list,
-        'sum_': sum(predict_list)
+        'sum_': sum(predict_list),
+        'mean_sum': mean_sum_list,
     }
 
     return render(request, 'detail/index.html', context)
@@ -172,22 +182,31 @@ def detail(request):
     ri = route + '_' + id_
     iw = id_ + '_' + str(wd)
     riw = route + '_' + id_ + '_' + str(wd)
-    r_model = r_mean_sum.objects.filter( r = r )[0]
-    i_model = i_mean_sum.objects.filter( i = i )[0]
-    w_model = w_mean_sum.objects.filter( w = w )[0]
-    rw_model = rw_mean_sum.objects.filter( rw = rw )[0]
-    ri_model  = ri_mean_sum.objects.filter( ri = ri )[0]
-    iw_model  = iw_mean_sum.objects.filter( iw = iw )[0]
-    riw_model  = riw_mean_sum.objects.filter( riw = riw )[0]
 
-    mean_sum_list = [r_model.r_s, r_model.r_m, i_model.i_s, i_model.i_m, w_model.w_s, w_model.w_m, rw_model.rw_s,
-                     rw_model.rw_m, ri_model.ri_s, ri_model.ri_m, iw_model.iw_s, iw_model.iw_m, riw_model.riw_s, riw_model.riw_m
-                     ]
+    mean_sum_list = []
+    ms_model_list = [r_mean_sum, i_mean_sum, w_mean_sum, rw_mean_sum, ri_mean_sum, iw_mean_sum, riw_mean_sum]
+    ms_param_list = [r, i, w, rw, ri, iw, riw]
+
+    for i in range( len(ms_model_list) ):
+        try:
+            md = ms_model_list[i].objects.filter( target = ms_param_list[i] )[0]
+            mean_sum_list.append(md.s)
+            mean_sum_list.append(md.m)
+        except:
+            mean_sum_list.append(0)
+            mean_sum_list.append(0)
 
     #congestion
-    con_list = [
-        r_congestion.objects.filter(r=r)[0].r_con, i_congestion.objects.filter(i=i)[0].i_con, w_congestion.objects.filter(w=w)[0].w_con
-            ]
+    con_list = []
+    con_model_list = [r_congestion, i_congestion, w_congestion]
+    con_param_list = [r, i, w]
+
+    for i in range( len(con_model_list) ):
+        try:
+            md = con_model_list[i].objects.filter( target = con_param_list[i] )[0]
+            con_list.append(md.con)
+        except:
+            con_list.append(0)
 
     #population
     pop_list = [BusInfo.objects.filter(dong_name=dong_)[0].population]
@@ -232,7 +251,8 @@ def detail(request):
         'id' : id_,
         'bus' : BusInfo.objects.all(),
         'predict' : predict_list,
-        'sum_': sum(predict_list)
+        'sum_': sum(predict_list),
+        'mean_sum': mean_sum_list,
     }
 
     return render(request, 'detail/index.html', context)
@@ -277,22 +297,31 @@ def search(request):
     ri = route + '_' + id_
     iw = id_ + '_' + str(wd)
     riw = route + '_' + id_ + '_' + str(wd)
-    r_model = r_mean_sum.objects.filter( r = r )[0]
-    i_model = i_mean_sum.objects.filter( i = i )[0]
-    w_model = w_mean_sum.objects.filter( w = w )[0]
-    rw_model = rw_mean_sum.objects.filter( rw = rw )[0]
-    ri_model  = ri_mean_sum.objects.filter( ri = ri )[0]
-    iw_model  = iw_mean_sum.objects.filter( iw = iw )[0]
-    riw_model  = riw_mean_sum.objects.filter( riw = riw )[0]
 
-    mean_sum_list = [r_model.r_s, r_model.r_m, i_model.i_s, i_model.i_m, w_model.w_s, w_model.w_m, rw_model.rw_s,
-                     rw_model.rw_m, ri_model.ri_s, ri_model.ri_m, iw_model.iw_s, iw_model.iw_m, riw_model.riw_s, riw_model.riw_m
-                     ]
+    mean_sum_list = []
+    ms_model_list = [r_mean_sum, i_mean_sum, w_mean_sum, rw_mean_sum, ri_mean_sum, iw_mean_sum, riw_mean_sum]
+    ms_param_list = [r, i, w, rw, ri, iw, riw]
+
+    for i in range( len(ms_model_list) ):
+        try:
+            md = ms_model_list[i].objects.filter( target = ms_param_list[i] )[0]
+            mean_sum_list.append(md.s)
+            mean_sum_list.append(md.m)
+        except:
+            mean_sum_list.append(0)
+            mean_sum_list.append(0)
 
     #congestion
-    con_list = [
-        r_congestion.objects.filter(r=r)[0].r_con, i_congestion.objects.filter(i=i)[0].i_con, w_congestion.objects.filter(w=w)[0].w_con
-            ]
+    con_list = []
+    con_model_list = [r_congestion, i_congestion, w_congestion]
+    con_param_list = [r, i, w]
+
+    for i in range( len(con_model_list) ):
+        try:
+            md = con_model_list[i].objects.filter( target = con_param_list[i] )[0]
+            con_list.append(md.con)
+        except:
+            con_list.append(0)
 
     #population
     pop_list = [BusInfo.objects.filter(dong_name=dong_)[0].population]
@@ -337,7 +366,8 @@ def search(request):
         'id' : id_,
         'bus' : BusInfo.objects.all(),
         'predict' : predict_list,
-        'sum_': sum(predict_list)
+        'sum_': sum(predict_list),
+        'mean_sum' : mean_sum_list,
     }
 
     return render(request, 'detail/index.html', context)
