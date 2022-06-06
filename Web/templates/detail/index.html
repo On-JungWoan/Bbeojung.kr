@@ -93,7 +93,7 @@
             {% if b.name == station %}
             {% ifchanged %}
               <li>
-                <a href="{% url 'bus:info' dist station b.r %}">
+                <a href="{% url 'bus:info' dist id b.r %}">
                   <i class="bi bi-circle"></i><span>{{ b.r }}</span>
                 </a>
               </li>
@@ -467,8 +467,8 @@
                       name: 'Budget vs spending',
                       type: 'radar',
                       data: [{
-                          value: [{{ mean_sum.3 }}, {{ mean_sum.1 }}, {{ mean_sum.9 }}
-                          , {{ mean_sum.13 }}, {{ mean_sum.11 }}, {{ mean_sum.7 }}],
+                          value: [{{ mean_sum.2 }}, {{ mean_sum.0 }}, {{ mean_sum.8 }}
+                          , {{ mean_sum.12 }}, {{ mean_sum.10 }}, {{ mean_sum.6 }}],
                           name: '현재 정류장( {{ station }} )'
                         },
                         {

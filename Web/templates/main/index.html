@@ -157,8 +157,8 @@
                                                 {% for b in bus|dictsort:'name' %}
                                                     {% if b.dist == '동구' %}
                                                         {% ifchanged %}
-                                                        <option value="{{ b.name }}">
-                                                            {{ b.name }}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
                                                         </option>
                                                         {% endifchanged %}
                                                     {% endif %}
@@ -170,8 +170,8 @@
                                                 {% for b in bus|dictsort:'name' %}
                                                     {% if b.dist == '서구' %}
                                                         {% ifchanged %}
-                                                        <option value="{{ b.name }}">
-                                                            {{ b.name }}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
                                                         </option>
                                                         {% endifchanged %}
                                                     {% endif %}
@@ -182,8 +182,8 @@
                                                 {% for b in bus|dictsort:'name' %}
                                                     {% if b.dist == '남구' %}
                                                         {% ifchanged %}
-                                                        <option value="{{ b.name }}">
-                                                            {{ b.name }}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
                                                         </option>
                                                         {% endifchanged %}
                                                     {% endif %}
@@ -194,8 +194,8 @@
                                                 {% for b in bus|dictsort:'name' %}
                                                     {% if b.dist == '북구' %}
                                                         {% ifchanged %}
-                                                        <option value="{{ b.name }}">
-                                                            {{ b.name }}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
                                                         </option>
                                                         {% endifchanged %}
                                                     {% endif %}
@@ -206,8 +206,8 @@
                                                 {% for b in bus|dictsort:'name' %}
                                                     {% if b.dist == '광산구' %}
                                                         {% ifchanged %}
-                                                        <option value="{{ b.name }}">
-                                                            {{ b.name }}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
                                                         </option>
                                                         {% endifchanged %}
                                                     {% endif %}

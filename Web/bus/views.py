@@ -32,11 +32,11 @@ def index(request):
     return render(request, "main/index.html", context)
 
 #
-def info(request, dist, station, route):
+def info(request, dist, id_, route):
 
     if ( (len(BusInfo.objects.filter( r=route ))==0) or (route=='') ):
-        route =  BusInfo.objects.filter( name=station )[0].r
-    id_ = str( BusInfo.objects.filter( name=station )[0].i )
+        route =  BusInfo.objects.filter( i=id_ )[0].r
+    station = BusInfo.objects.filter( i=id_ )[0].name
     dong_ = BusInfo.objects.filter(name=station)[0].dong_name
 
     #distance
@@ -75,8 +75,8 @@ def info(request, dist, station, route):
     for i in range( len(ms_model_list) ):
         try:
             md = ms_model_list[i].objects.filter( target = ms_param_list[i] )[0]
-            mean_sum_list.append(md.s)
             mean_sum_list.append(md.m)
+            mean_sum_list.append(md.s)
         except:
             mean_sum_list.append(0)
             mean_sum_list.append(0)
@@ -146,12 +146,12 @@ def info(request, dist, station, route):
 def detail(request):
     if request.method == 'POST':
         dist = request.POST.get('location')
-        station = request.POST.get('category')
+        id_ = request.POST.get('category')
         route = request.POST.get('keyword')
 
     if ( (len(BusInfo.objects.filter( r=route ))==0) or (route=='') ):
-        route =  BusInfo.objects.filter( name=station )[0].r
-    id_ = str( BusInfo.objects.filter( name=station )[0].i )
+        route =  BusInfo.objects.filter( i=id_ )[0].r
+    station = BusInfo.objects.filter( i=id_ )[0].name
     dong_ = BusInfo.objects.filter(name=station)[0].dong_name
 
     #distance
@@ -190,8 +190,8 @@ def detail(request):
     for i in range( len(ms_model_list) ):
         try:
             md = ms_model_list[i].objects.filter( target = ms_param_list[i] )[0]
-            mean_sum_list.append(md.s)
             mean_sum_list.append(md.m)
+            mean_sum_list.append(md.s)
         except:
             mean_sum_list.append(0)
             mean_sum_list.append(0)
@@ -305,8 +305,8 @@ def search(request):
     for i in range( len(ms_model_list) ):
         try:
             md = ms_model_list[i].objects.filter( target = ms_param_list[i] )[0]
-            mean_sum_list.append(md.s)
             mean_sum_list.append(md.m)
+            mean_sum_list.append(md.s)
         except:
             mean_sum_list.append(0)
             mean_sum_list.append(0)
