@@ -40,12 +40,18 @@ def info(request, dist, id_, route):
     dong_ = BusInfo.objects.filter(name=station)[0].dong_name
 
     #distance
-    dist_model = distance.objects.filter(i = id_)[0]
-    dist_list = [
-        dist_model.dis_0, dist_model.dis_1, dist_model.dis_2,
-        dist_model.dis_3, dist_model.dis_4, dist_model.dis_5,
-        dist_model.dis_6, dist_model.dis_7, dist_model.dis_8
-    ]
+    try:
+        dist_model = distance.objects.filter(i = id_)[0]
+        dist_list = [
+            dist_model.dis_0, dist_model.dis_1, dist_model.dis_2,
+            dist_model.dis_3, dist_model.dis_4, dist_model.dis_5,
+            dist_model.dis_6, dist_model.dis_7, dist_model.dis_8
+        ]
+    except:
+        dist_list = [
+            9.623654997, 8.208407938, 8.944554846, 8.42822716, 7.733141688, 6.780249414, 6.90795094,
+            8.019099519, 8.506656788
+        ]
 
 
     # weekday one-hot encoding
@@ -157,12 +163,18 @@ def detail(request):
     dong_ = BusInfo.objects.filter(name=station)[0].dong_name
 
     #distance
-    dist_model = distance.objects.filter(i = id_)[0]
-    dist_list = [
-        dist_model.dis_0, dist_model.dis_1, dist_model.dis_2,
-        dist_model.dis_3, dist_model.dis_4, dist_model.dis_5,
-        dist_model.dis_6, dist_model.dis_7, dist_model.dis_8
-    ]
+    try:
+        dist_model = distance.objects.filter(i = id_)[0]
+        dist_list = [
+            dist_model.dis_0, dist_model.dis_1, dist_model.dis_2,
+            dist_model.dis_3, dist_model.dis_4, dist_model.dis_5,
+            dist_model.dis_6, dist_model.dis_7, dist_model.dis_8
+        ]
+    except:
+        dist_list = [
+            9.623654997, 8.208407938, 8.944554846, 8.42822716, 7.733141688, 6.780249414, 6.90795094,
+            8.019099519, 8.506656788
+        ]
 
 
     # weekday one-hot encoding
@@ -274,12 +286,18 @@ def search(request):
     dong_ = BusInfo.objects.filter(name=station)[0].dong_name
 
     #distance
-    dist_model = distance.objects.filter(i = id_)[0]
-    dist_list = [
-        dist_model.dis_0, dist_model.dis_1, dist_model.dis_2,
-        dist_model.dis_3, dist_model.dis_4, dist_model.dis_5,
-        dist_model.dis_6, dist_model.dis_7, dist_model.dis_8
-    ]
+    try:
+        dist_model = distance.objects.filter(i = id_)[0]
+        dist_list = [
+            dist_model.dis_0, dist_model.dis_1, dist_model.dis_2,
+            dist_model.dis_3, dist_model.dis_4, dist_model.dis_5,
+            dist_model.dis_6, dist_model.dis_7, dist_model.dis_8
+        ]
+    except:
+        dist_list = [
+            9.623654997, 8.208407938, 8.944554846, 8.42822716, 7.733141688, 6.780249414, 6.90795094,
+            8.019099519, 8.506656788
+        ]
 
 
     # weekday one-hot encoding
