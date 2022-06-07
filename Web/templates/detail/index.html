@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>뻐정 : 정류장 정보 제공 시스템</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -45,13 +45,11 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="{% url 'bus:main' %}" class="logo d-flex align-items-center">
-        <span class="d-none d-lg-block">Bus Predict Service</span>
+      <a href="{% url 'bus:main' %}" class="d-flex">
+          <img src="{% static 'main/assets/images/logo/80.png' %}" class = "img-fluid " alt="Logo">
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
-
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -104,21 +102,21 @@
       </li><!-- End Components Nav -->
 
 
-      <li class="nav-heading">Pages</li>
+      <!--<li class="nav-heading">Pages</li>-->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link collapsed" href="pages-faq.html">-->
+          <!--<i class="bi bi-question-circle"></i>-->
+          <!--<span>F.A.Q</span>-->
+        <!--</a>-->
+      <!--</li>&lt;!&ndash; End F.A.Q Page Nav &ndash;&gt;-->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link collapsed" href="pages-contact.html">-->
+          <!--<i class="bi bi-envelope"></i>-->
+          <!--<span>Contact</span>-->
+        <!--</a>-->
+      <!--</li>&lt;!&ndash; End Contact Page Nav &ndash;&gt;-->
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -141,72 +139,47 @@
         <div class="col-lg-8">
           <div class="row">
 
-            <!-- Sales Card -->
+             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
+              <div class="card info-card revenue-card">
                 <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
+                  <h5 class="card-title">정류장 평균 탑승객 <span>| {{ station }}</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i>
+                      <i class="bi bi-geo-alt-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      <h6>{{ total|floatformat }}명</h6>
 
                     </div>
                   </div>
+                  <p class="card-text text-muted">
+                    <br>해당 정류장 평균 대기인원을 나타냅니다.
+                  </p>
                 </div>
 
               </div>
-            </div><!-- End Sales Card -->
+            </div><!-- End Revenue Card -->
 
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
                 <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                  <h5 class="card-title">버스 평균 탑승객 <span>| {{ route }}</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
+                      <i class="bi bi-geo-alt"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      <h6>{{ mean_sum.8|floatformat }}명</h6>
 
                     </div>
                   </div>
+                  <p class="card-text text-muted"><br>선택한 버스를 평균적으로 몇 명이 타는지 나타냅니다.</p>
                 </div>
+
 
               </div>
             </div><!-- End Revenue Card -->
@@ -214,34 +187,20 @@
             <!-- Customers Card -->
             <div class="col-xxl-4 col-xl-12">
 
-              <div class="card info-card customers-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
+              <div class="card info-card customers-card ">
                 <div class="card-body">
-                  <h5 class="card-title">Total <span>| {{ route }}</span></h5>
+                  <h5 class="card-title">버스 하루 총 탑승객 <span>| {{ route }}</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
+                      <i class="bi bi-people-fill"></i>
                     </div>
                     <div class="ps-3">
                       <h6>{{ sum_ }}명</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
                     </div>
                   </div>
+
+                  <p class="card-text text-muted"><br>선택한 버스에 하루동안 탑승한 인원수를 나타냅니다.</p>
 
                 </div>
               </div>
@@ -327,79 +286,79 @@
 
 
 
-            <!-- Top Selling -->
-            <div class="col-12">
-              <div class="card top-selling overflow-auto">
+            <!--&lt;!&ndash; Top Selling &ndash;&gt;-->
+            <!--<div class="col-12">-->
+              <!--<div class="card top-selling overflow-auto">-->
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
+                <!--<div class="filter">-->
+                  <!--<a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+                  <!--<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+                    <!--<li class="dropdown-header text-start">-->
+                      <!--<h6>Filter</h6>-->
+                    <!--</li>-->
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
+                    <!--<li><a class="dropdown-item" href="#">Today</a></li>-->
+                    <!--<li><a class="dropdown-item" href="#">This Month</a></li>-->
+                    <!--<li><a class="dropdown-item" href="#">This Year</a></li>-->
+                  <!--</ul>-->
+                <!--</div>-->
 
-                <div class="card-body pb-0">
-                  <h5 class="card-title">Top Selling <span>| Today</span></h5>
+                <!--<div class="card-body pb-0">-->
+                  <!--<h5 class="card-title">Top Selling <span>| Today</span></h5>-->
 
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Sold</th>
-                        <th scope="col">Revenue</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                        <td>$64</td>
-                        <td class="fw-bold">124</td>
-                        <td>$5,828</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                        <td>$46</td>
-                        <td class="fw-bold">98</td>
-                        <td>$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                        <td>$59</td>
-                        <td class="fw-bold">74</td>
-                        <td>$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                        <td>$32</td>
-                        <td class="fw-bold">63</td>
-                        <td>$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                        <td>$79</td>
-                        <td class="fw-bold">41</td>
-                        <td>$3,239</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <!--<table class="table table-borderless">-->
+                    <!--<thead>-->
+                      <!--<tr>-->
+                        <!--<th scope="col">Preview</th>-->
+                        <!--<th scope="col">Product</th>-->
+                        <!--<th scope="col">Price</th>-->
+                        <!--<th scope="col">Sold</th>-->
+                        <!--<th scope="col">Revenue</th>-->
+                      <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                      <!--<tr>-->
+                        <!--<th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>-->
+                        <!--<td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>-->
+                        <!--<td>$64</td>-->
+                        <!--<td class="fw-bold">124</td>-->
+                        <!--<td>$5,828</td>-->
+                      <!--</tr>-->
+                      <!--<tr>-->
+                        <!--<th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>-->
+                        <!--<td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>-->
+                        <!--<td>$46</td>-->
+                        <!--<td class="fw-bold">98</td>-->
+                        <!--<td>$4,508</td>-->
+                      <!--</tr>-->
+                      <!--<tr>-->
+                        <!--<th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>-->
+                        <!--<td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>-->
+                        <!--<td>$59</td>-->
+                        <!--<td class="fw-bold">74</td>-->
+                        <!--<td>$4,366</td>-->
+                      <!--</tr>-->
+                      <!--<tr>-->
+                        <!--<th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>-->
+                        <!--<td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>-->
+                        <!--<td>$32</td>-->
+                        <!--<td class="fw-bold">63</td>-->
+                        <!--<td>$2,016</td>-->
+                      <!--</tr>-->
+                      <!--<tr>-->
+                        <!--<th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>-->
+                        <!--<td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>-->
+                        <!--<td>$79</td>-->
+                        <!--<td class="fw-bold">41</td>-->
+                        <!--<td>$3,239</td>-->
+                      <!--</tr>-->
+                    <!--</tbody>-->
+                  <!--</table>-->
 
-                </div>
+                <!--</div>-->
 
-              </div>
-            </div><!-- End Top Selling -->
+              <!--</div>-->
+            <!--</div>&lt;!&ndash; End Top Selling &ndash;&gt;-->
 
           </div>
         </div><!-- End Left side columns -->
@@ -411,18 +370,7 @@
 
           <!-- Budget Report -->
           <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
 
             <div class="card-body pb-0">
               <h5 class="card-title">평균 탑승객 <span>| 2022년 3~4월</span></h5>
@@ -484,83 +432,83 @@
             </div>
           </div><!-- End Budget Report -->
 
-          <!-- Website Traffic -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
+          <!--&lt;!&ndash; Website Traffic &ndash;&gt;-->
+          <!--<div class="card">-->
+            <!--<div class="filter">-->
+              <!--<a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+              <!--<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+                <!--<li class="dropdown-header text-start">-->
+                  <!--<h6>Filter</h6>-->
+                <!--</li>-->
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
+                <!--<li><a class="dropdown-item" href="#">Today</a></li>-->
+                <!--<li><a class="dropdown-item" href="#">This Month</a></li>-->
+                <!--<li><a class="dropdown-item" href="#">This Year</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
 
-            <div class="card-body pb-0">
-              <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+            <!--<div class="card-body pb-0">-->
+              <!--<h5 class="card-title">Website Traffic <span>| Today</span></h5>-->
 
-              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+              <!--<div id="trafficChart" style="min-height: 400px;" class="echart"></div>-->
 
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  echarts.init(document.querySelector("#trafficChart")).setOption({
-                    tooltip: {
-                      trigger: 'item'
-                    },
-                    legend: {
-                      top: '5%',
-                      left: 'center'
-                    },
-                    series: [{
-                      name: 'Access From',
-                      type: 'pie',
-                      radius: ['40%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        show: false,
-                        position: 'center'
-                      },
-                      emphasis: {
-                        label: {
-                          show: true,
-                          fontSize: '18',
-                          fontWeight: 'bold'
-                        }
-                      },
-                      labelLine: {
-                        show: false
-                      },
-                      data: [{
-                          value: 1048,
-                          name: 'Search Engine'
-                        },
-                        {
-                          value: 735,
-                          name: 'Direct'
-                        },
-                        {
-                          value: 580,
-                          name: 'Email'
-                        },
-                        {
-                          value: 484,
-                          name: 'Union Ads'
-                        },
-                        {
-                          value: 300,
-                          name: 'Video Ads'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
+              <!--<script>-->
+                <!--document.addEventListener("DOMContentLoaded", () => {-->
+                  <!--echarts.init(document.querySelector("#trafficChart")).setOption({-->
+                    <!--tooltip: {-->
+                      <!--trigger: 'item'-->
+                    <!--},-->
+                    <!--legend: {-->
+                      <!--top: '5%',-->
+                      <!--left: 'center'-->
+                    <!--},-->
+                    <!--series: [{-->
+                      <!--name: 'Access From',-->
+                      <!--type: 'pie',-->
+                      <!--radius: ['40%', '70%'],-->
+                      <!--avoidLabelOverlap: false,-->
+                      <!--label: {-->
+                        <!--show: false,-->
+                        <!--position: 'center'-->
+                      <!--},-->
+                      <!--emphasis: {-->
+                        <!--label: {-->
+                          <!--show: true,-->
+                          <!--fontSize: '18',-->
+                          <!--fontWeight: 'bold'-->
+                        <!--}-->
+                      <!--},-->
+                      <!--labelLine: {-->
+                        <!--show: false-->
+                      <!--},-->
+                      <!--data: [{-->
+                          <!--value: 1048,-->
+                          <!--name: 'Search Engine'-->
+                        <!--},-->
+                        <!--{-->
+                          <!--value: 735,-->
+                          <!--name: 'Direct'-->
+                        <!--},-->
+                        <!--{-->
+                          <!--value: 580,-->
+                          <!--name: 'Email'-->
+                        <!--},-->
+                        <!--{-->
+                          <!--value: 484,-->
+                          <!--name: 'Union Ads'-->
+                        <!--},-->
+                        <!--{-->
+                          <!--value: 300,-->
+                          <!--name: 'Video Ads'-->
+                        <!--}-->
+                      <!--]-->
+                    <!--}]-->
+                  <!--});-->
+                <!--});-->
+              <!--</script>-->
 
-            </div>
-          </div><!-- End Website Traffic -->
+            <!--</div>-->
+          <!--</div>&lt;!&ndash; End Website Traffic &ndash;&gt;-->
 
 
 
