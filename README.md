@@ -1,2 +1,147 @@
-# BusStop-Congestion-Project
-ì •ë¥˜ìž¥ í˜¼ìž¡ë„ ì˜ˆì¸¡ ML Model ê°œë°œ ë° ì„œë¹„ìŠ¤
+# »µÁ¤ : Á¤·ùÀå È¥Àâµµ ¿¹Ãø ML Model °³¹ß ¹× ¼­ºñ½º
+
+<br>
+
+¹ö½º¸¦ Å¸·¯ Á¤·ùÀå¿¡ °¬´Âµ¥ ¿¹»óÄ¡ ¸øÇÏ°Ô »ç¶÷ÀÌ ³Ê¹« ¸¹¾Æ °ï¿åÀ» Ä¡¸£¼Ì´ø °æÇè ÇÑ ¹øÂë ÀÖÀ¸½Ç°Ì´Ï´Ù.<br>
+±×·¸´Ù¸é **¹Ì¸® Á¤·ùÀå¿¡ »ç¶÷ÀÌ ¾ó¸¶³ª ÀÖÀ»Áö ¾Ë ¼ö´Â ¾øÀ»±î?** ÇÏ¿© ½ÃÀÛµÈ °ÍÀÌ »µÁ¤ ÇÁ·ÎÁ§Æ®ÀÔ´Ï´Ù.
+
+Æ¯È÷ 22³â 5¿ù 2ÀÏºÎÅÍ **½Ç¿Ü ¸¶½ºÅ© Âø¿ë ÀÇ¹«È­°¡ ÇØÁ¦**µÊÀ¸·Î½á Á¤·ùÀåÃ³·³ »ç¶÷ÀÌ Á¤ÀûÀ¸·Î ¸¹ÀÌ ¸ð¿©ÀÖ´Â °÷¿¡ °¡±â¸¦ ºÒ¾ÈÇØ ÇÏ½Ã´Â ºÐµéÀÌ ´Ã¾î³ª°í ÀÖ½À´Ï´Ù.
+
+**»µÁ¤Àº ÀÌ·¯ÇÑ ¹®Á¦Á¡µéÀ» ¿ÏÈ­**ÇÏ°í »ç¿ëÀÚ¿¡°Ô ±âÅ¸ ´Ù¾çÇÑ Á¤º¸¸¦ Á¦°øÇÏ±â À§ÇØ Åº»ýÇÑ ÇÁ·ÎÁ§Æ®ÀÔ´Ï´Ù.
+
+**Developer : ¿ÂÁ¤¿Ï**
+
+<br>
+<br>
+
+# 1. URL ÁÖ¼Ò & Web È­¸é ±¸¼º
+
+## 1) URL ÁÖ¼Ò
+
+> **URL : http://bbeojung.kr**
+
+¾ÆÁ÷Àº Áö¿ø ¹Þ´Â °÷ÀÌ ¾ø¾î¼­ ÇØ´ç ÇÁ·ÎÁ§Æ® ºñ¿ëÀº ¸ðµÎ **°³ÀÎ »çºñ**·Î ÁøÇàÇÏ°í ÀÖ½À´Ï´Ù. ¼­¹ö´Â AWS 3°³¿ù ¹«·á ÇÃ·£À» »ç¿ëÇÏ°í ÀÖ¾î **22³â 8**¿ùºÎÅÍ´Â **ÇØ´ç URL Á¢¼ÓÀÌ ºÒ°¡**ÇÒ ¼öµµ ÀÖ½À´Ï´Ù.
+
+## 2) Web È­¸é ±¸¼º
+
+ 1. **¸ÞÀÎ È­¸é**
+ 
+![main_jpg](https://user-images.githubusercontent.com/84084372/174231183-6f34ce39-f180-480c-a075-0678677bf190.jpg)
+**¼ÒÀçÁö**¿Í **Á¤·ùÀå¸í**À» ÀÔ·ÂÇÏ°í **³ë¼±¸í**(»ý·« °¡´É)À» ÀÔ·ÂÇÏ¸é ¼±ÅÃ µÈ Á¤º¸¿¡ ´ëÇÑ »ó¼¼ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.
+
+<br>
+
+ 2. **»ó¼¼ È­¸é**
+ 
+![detail](https://user-images.githubusercontent.com/84084372/174231536-f2c2078c-7c75-4c77-9ef5-d993620c9854.jpg)
+¼±ÅÃµÈ Á¤º¸¿¡ ´ëÇÑ **Åë°è·®**À» Ãâ·ÂÇÕ´Ï´Ù.
+
+<br>
+<br>
+
+# 2. Model
+
+»ç¿ë DataSet ¹× Feature, ÇÐ½À ¹æ¹ý¿¡ ´ëÇÑ °£·«ÇÑ Á¤º¸ÀÔ´Ï´Ù.
+
+## 1) DataSet
+|                |ÃâÃ³                          |³»¿ë                         |
+|----------------|-------------------------------|-----------------------------|
+|`±¤ÁÖ_¹ö½º_ÀÌ¿ë°´.csv`|°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|±¤ÁÖ±¤¿ª½Ã 3~4¿ù ¹ö½º ÀÌ¿ë°´            |
+|`±¤ÁÖ±¤¿ª½Ã_Á¤·ùÀå_À§Ä¡Á¤º¸.csv`          |°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|Á¤·ùÀåÀÇ °æµµ, À§µµ µ¥ÀÌÅÍ|
+|`Google Geocoding API`          |Google Maps|ÇØ´ç °æ/À§µµÀÇ ÁÖ¼Ò Á¤º¸¸¦ ¹ÝÈ¯ÇØ ÁÜ.|
+|`±¤ÁÖ±¤¿ª½Ã_ÇàÁ¤Áö¿ª_ÀÎ±¸.csv`          |KOSIS|±¤ÁÖ±¤¿ª½ÃÀÇ ÇàÁ¤Áö¿ª(¶Ë)º° ÀÎ±¸ µ¥ÀÌÅÍ¼Â|
+|`¹ýÁ¤µ¿_ÇàÁ¤µ¿_¸ÊÇÎ.csv`          |°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|Àü±¹ ¹ýÁ¤µ¿°ú ÇàÁ¤µ¿ ¸ÊÇÎ µ¥ÀÌÅÍ|
+|`2018~2022_°øÈÞÀÏ_Á¤º¸.csv`          |°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|2018~2022 °øÈÞÀÏ Á¤º¸|
+|`±â»óÃ»_±â»ó_µ¥ÀÌÅÍ.csv`          |±â»óÀÚ·á°³¹æÆ÷ÅÐ|±â¿Â, ½Àµµ, °­¼ö·®, Ç³¼Ó|
+
+
+## 2) Train Feature
+
+ - Distance
+	 - ±¤ÁÖ±¤¿ª½Ã ÁÖ¿ä Á¤·ùÀå¿¡ ´ëÇÑ °Å¸®Á¤º¸
+ - Population
+	 - ÇØ´ç ¼ÒÀçÁö(µ¿)ÀÇ ÀÎ±¸ Á¤º¸
+ - Weekday
+	 - ¿äÀÏ One-Hot Encoding)
+ - Mean & Sum
+	 - ÁÖ¿ä º¯¼öÀÇ ¿ä¾à Åë°è·®
+ - Congestion
+	 - ÁÖ¿ä º¯¼öº° Å¾½Â°´ Min-Max Scaling
+ - Weekday & Holiday
+	 - ÁÖ¸» ¹× °øÈÞÀÏ ¿©ºÎ
+ - Weather data
+	 - ¿Âµµ, ½Àµµ, °­¼ö·®, Ç³¼Ó µ¥ÀÌÅÍ
+ - Label Encoding
+	 - ÁÖ¿ä º¯¼ö Label Encoding °ª
+
+## 3) Train Model
+¸ðµ¨ ÇÐ½À °úÁ¤Àº ¹ÝÀÚµ¿ ML ¶óÀÌºê·¯¸®ÀÎ PycaretÀ» ÀÌ¿ëÇÏ¿´½À´Ï´Ù.
+<br>
+
+#### I. Find Best Model
+	R square °ªÀ» ±âÁØÀ¸·Î Áöµµ ÇÐ½À ¶óÀÌºê·¯¸®ÀÇ ¼º´É °è»ê Best 3 ModelÀ» ¼±ÅÃÇÔ
+
+#### II. HyperParameter Tuning
+	Best 3 Model¿¡ ´ëÇØ¼­ Random Search ¹æ½ÄÀ¸·Î ÇÏÀÌÆÛ ÆÄ¶ó¹ÌÅÍ Æ©´× ÁøÇà
+
+#### III. Model Blending
+	Best 3 Model Blending
+
+#### IV. Model Ensemble
+	¹è±ë ¹æ½ÄÀ¸·Î ¾Ó»óºí ÁøÇà
+
+## 4) Model ¼º´É Æò°¡
+fold °ªÀ» 10À¸·Î ÇÏ¿© k-fold ±³Â÷°ËÁõÀ» ÇØÁÖ¾ú½À´Ï´Ù.
+
+![image](https://user-images.githubusercontent.com/84084372/174237056-c7c61f6a-51d8-40c6-8205-0c0e41e47b9e.png)
+
+
+<br>
+<br>
+
+
+# 3. Web
+
+## 1) »ç¿ë Server ¹× DB
+
+| ¼­¹ö/DB | ³»¿ë |
+|--|--|
+| Å¬¶ó¿ìµå ½Ã½ºÅÛ | AWS Lightsail |
+| Web Server | Nginx |
+| WSGI Server | Gunicorn |
+| DB | PostgreSQL |
+| Application | Django |
+
+¿ì¼±, **Å¬¶ó¿ìµå ½Ã½ºÅÛ**À¸·Î´Â **AWS Lightsail**À» »ç¿ëÇØ ÁÖ¾ú½À´Ï´Ù. AWS°¡ ºñ½Î±âµµ ÇÏ°í »ç¿ë ¹æ¹ýÀÌ ¾î·Æ´Ù´Â ´ÜÁ¡ÀÌ ÀÖÁö¸¸, **LightSail**ÀÌ ÀÌ ´ÜÁ¡µéÀ» ¸ðµÎ º¸¿ÏÇØ ÁÙ ¼ö ÀÖ±â¿¡ Å¬¶ó¿ìµå ¼­¹ö·Î´Â AWSÀÇ ¶óÀÌÆ® ¼¼ÀÏÀ» Ã¤ÅÃÇÏ¿´½À´Ï´Ù.
+ÇÑ ´Þ **5´Þ·¯** ¿ä±ÝÀÇ ¼­¹ö¸¦ ±¸ÀÔÇÏ¿´´Âµ¥ AWS¿¡¼­ **3°³¿ù ¹«·á ÇÃ·£**À» Áö¿øÇØÁà¼­ Áö±ÝÀº ¹«·á·Î »ç¿ëÇÏ°í ÀÖ½À´Ï´Ù.
+
+**À¥ ¼­¹ö**·Î´Â ÀÏ¹ÝÀûÀ¸·Î Django¿Í ¸¹ÀÌ »ç¿ëÇÏ´Â **Nginx**¸¦ »ç¿ëÇÏ¿´½À´Ï´Ù.
+
+¶ÇÇÑ, µ¿Àû À¥ÆäÀÌÁö¸¦ Ã³¸®ÇÒ **WSGI ¼­¹ö**·Î´Â **gunicorn**À» Ã¤ÅÃÇÏ¿´½À´Ï´Ù.
+
+À§½ºÅ° ¼­¹ö ¾îÇÃ¸®ÄÉÀÌ¼ÇÀ¸·Î´Â »ç¿ëÇÏ±â Æí¸®ÇÑ ¿Ï¼ºÇü ÇÁ·¹ÀÓ¿öÅ© **Django**¸¦ »ç¿ëÇÏ¿´½À´Ï´Ù.
+
+**Nginx**°¡ Á¤Àû ¿äÃ»À» Ã³¸®ÇÏ°í µ¿Àû ¿äÃ»Àº **gunicorn**ÀÌ Àå°í¿¡ ³Ñ°ÜÁà¼­ Ã³¸®ÇÏ´Â ¹æ½ÄÀ¸·Î À¥ÀÌ µ¿ÀÛÇÏ°í ÀÖ½À´Ï´Ù.
+
+
+## 2) Back-End Flow Chart
+
+![image](https://user-images.githubusercontent.com/84084372/174237817-a7e9fb91-9fdc-47e8-b5f3-f1efaea05290.png)
+
+¿ì¼±, ÆÄÀÌ½ã È¯°æ¿¡¼­ ÇÐ½ÀÀ» ¸¶Ä£ ¸ðµ¨À» **pickleÆÄÀÏ**·Î ÀúÀåÇÏ¿© ¼­¹ö¿¡ ÀúÀåÇØµÓ´Ï´Ù.
+
+ÀÌÈÄ Django È¯°æÀÇ **ViewÇÔ¼ö**¿¡, pickle ÆÄÀÏÀ» ºÒ·¯¿Í **predict**ÇÏ´Â ¾Ë°í¸®ÁòÀ» ¹Ì¸® ÀÛ¼ºÇØµÎ°í, »ç¿ëÀÚ°¡ urlÀ» ¿äÃ»ÇÏ¸é **ViewÇÔ¼ö**¸¦ È£ÃâÇÏ¿© **html**·Î ³Ñ°ÜÁÖ´Â ÇüÅÂ·Î À¥ÀÌ µ¿ÀÛÇÕ´Ï´Ù.
+
+
+<br>
+<br>
+
+
+# 4. È°¿ë ¹æ¾È
+
+
+¾Õ¼­ º¸¿©µå·È´ø À¥Àº Á¦°¡ Á¦½ÃÇÏ´Â ¸ðµ¨ È°¿ë ¹æ¾ÈÀÇ ÀÏºÎÀÌ°í, ÀÌ¿Ü¿¡µµ ÇØ´ç ¸ðµ¨À» È°¿ëÇÒ ¼ö ÀÖ´Â ¹æ¾ÈÀº ¸¹ÀÌ ÀÖÀ» °ÍÀÔ´Ï´Ù.
+
+¸ðµ¨À» **¹ö½º Àü±¤ÆÇ ½Ã½ºÅÛ**°ú ¿¬µ¿ÇÏ¿© Àü±¤ÆÇ¿¡ Á¤·ùÀå È¥Àâµµ¸¦ Á¦°øÇÒ ¼öµµ ÀÖ°í,
+
+»ç¿ëÀÚ°¡ Á¢±ÙÇÏ±â Æí¸®ÇÏµµ·Ï **¾Û**ÀÌ³ª **Ãªº¿**À» Ãâ½ÃÇÏ´Â ¹æÇâµµ »ý°¢Áß¿¡ ÀÖ½À´Ï´Ù.
