@@ -22,3 +22,4 @@ urlpatterns = [
     path('bus/', include('bus.urls')),
     path('', views.index)
 ]
+
