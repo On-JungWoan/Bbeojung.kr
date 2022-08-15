@@ -16,7 +16,7 @@
 
 # 1. URL 주소 & Web 화면 구성
 
-## 1) URL 주소
+## 1) URL 주소 (운영 종료)
 
 > **URL : http://bbeojung.kr**
 
