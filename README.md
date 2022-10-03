@@ -31,6 +31,7 @@
 
 <br>
 
+
  2. **상세 화면**
  
 ![detail](https://user-images.githubusercontent.com/84084372/174231536-f2c2078c-7c75-4c77-9ef5-d993620c9854.jpg)
