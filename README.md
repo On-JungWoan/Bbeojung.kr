@@ -1,97 +1,98 @@
-# »µÁ¤ : Á¤·ùÀå È¥Àâµµ ¿¹Ãø ML Model °³¹ß ¹× ¼­ºñ½º
+# ë»ì • : ì •ë¥˜ìž¥ í˜¼ìž¡ë„ ì˜ˆì¸¡ ML Model ê°œë°œ ë° ì„œë¹„ìŠ¤
 
 <br>
 
-¹ö½º¸¦ Å¸·¯ Á¤·ùÀå¿¡ °¬´Âµ¥ ¿¹»óÄ¡ ¸øÇÏ°Ô »ç¶÷ÀÌ ³Ê¹« ¸¹¾Æ °ï¿åÀ» Ä¡¸£¼Ì´ø °æÇè ÇÑ ¹øÂë ÀÖÀ¸½Ç°Ì´Ï´Ù.<br>
-±×·¸´Ù¸é **¹Ì¸® Á¤·ùÀå¿¡ »ç¶÷ÀÌ ¾ó¸¶³ª ÀÖÀ»Áö ¾Ë ¼ö´Â ¾øÀ»±î?** ÇÏ¿© ½ÃÀÛµÈ °ÍÀÌ »µÁ¤ ÇÁ·ÎÁ§Æ®ÀÔ´Ï´Ù.
+ë²„ìŠ¤ë¥¼ íƒ€ëŸ¬ ì •ë¥˜ìž¥ì— ê°”ëŠ”ë° ì˜ˆìƒì¹˜ ëª»í•˜ê²Œ ì‚¬ëžŒì´ ë„ˆë¬´ ë§Žì•„ ê³¤ìš•ì„ ì¹˜ë¥´ì…¨ë˜ ê²½í—˜ í•œ ë²ˆì¯¤ ìžˆìœ¼ì‹¤ê²ë‹ˆë‹¤.<br>
+ê·¸ë ‡ë‹¤ë©´ **ë¯¸ë¦¬ ì •ë¥˜ìž¥ì— ì‚¬ëžŒì´ ì–¼ë§ˆë‚˜ ìžˆì„ì§€ ì•Œ ìˆ˜ëŠ” ì—†ì„ê¹Œ?** í•˜ì—¬ ì‹œìž‘ëœ ê²ƒì´ ë»ì • í”„ë¡œì íŠ¸ìž…ë‹ˆë‹¤.
 
-Æ¯È÷ 22³â 5¿ù 2ÀÏºÎÅÍ **½Ç¿Ü ¸¶½ºÅ© Âø¿ë ÀÇ¹«È­°¡ ÇØÁ¦**µÊÀ¸·Î½á Á¤·ùÀåÃ³·³ »ç¶÷ÀÌ Á¤ÀûÀ¸·Î ¸¹ÀÌ ¸ð¿©ÀÖ´Â °÷¿¡ °¡±â¸¦ ºÒ¾ÈÇØ ÇÏ½Ã´Â ºÐµéÀÌ ´Ã¾î³ª°í ÀÖ½À´Ï´Ù.
+íŠ¹ížˆ 22ë…„ 5ì›” 2ì¼ë¶€í„° **ì‹¤ì™¸ ë§ˆìŠ¤í¬ ì°©ìš© ì˜ë¬´í™”ê°€ í•´ì œ**ë¨ìœ¼ë¡œì¨ ì •ë¥˜ìž¥ì²˜ëŸ¼ ì‚¬ëžŒì´ ì •ì ìœ¼ë¡œ ë§Žì´ ëª¨ì—¬ìžˆëŠ” ê³³ì— ê°€ê¸°ë¥¼ ë¶ˆì•ˆí•´ í•˜ì‹œëŠ” ë¶„ë“¤ì´ ëŠ˜ì–´ë‚˜ê³  ìžˆìŠµë‹ˆë‹¤.
 
-**»µÁ¤Àº ÀÌ·¯ÇÑ ¹®Á¦Á¡µéÀ» ¿ÏÈ­**ÇÏ°í »ç¿ëÀÚ¿¡°Ô ±âÅ¸ ´Ù¾çÇÑ Á¤º¸¸¦ Á¦°øÇÏ±â À§ÇØ Åº»ýÇÑ ÇÁ·ÎÁ§Æ®ÀÔ´Ï´Ù.
+**ë»ì •ì€ ì´ëŸ¬í•œ ë¬¸ì œì ë“¤ì„ ì™„í™”**í•˜ê³  ì‚¬ìš©ìžì—ê²Œ ê¸°íƒ€ ë‹¤ì–‘í•œ ì •ë³´ë¥¼ ì œê³µí•˜ê¸° ìœ„í•´ íƒ„ìƒí•œ í”„ë¡œì íŠ¸ìž…ë‹ˆë‹¤.
 
-**Developer : ¿ÂÁ¤¿Ï**
+**Developer : ì˜¨ì •ì™„**
 
 <br>
 <br>
 
-# 1. URL ÁÖ¼Ò & Web È­¸é ±¸¼º
+# 1. URL ì£¼ì†Œ & Web í™”ë©´ êµ¬ì„±
 
-## 1) URL ÁÖ¼Ò
+## 1) URL ì£¼ì†Œ (ìš´ì˜ ì¢…ë£Œ)
 
 > **URL : http://bbeojung.kr**
 
-¾ÆÁ÷Àº Áö¿ø ¹Þ´Â °÷ÀÌ ¾ø¾î¼­ ÇØ´ç ÇÁ·ÎÁ§Æ® ºñ¿ëÀº ¸ðµÎ **°³ÀÎ »çºñ**·Î ÁøÇàÇÏ°í ÀÖ½À´Ï´Ù. ¼­¹ö´Â AWS 3°³¿ù ¹«·á ÇÃ·£À» »ç¿ëÇÏ°í ÀÖ¾î **22³â 8**¿ùºÎÅÍ´Â **ÇØ´ç URL Á¢¼ÓÀÌ ºÒ°¡**ÇÒ ¼öµµ ÀÖ½À´Ï´Ù.
+ì•„ì§ì€ ì§€ì› ë°›ëŠ” ê³³ì´ ì—†ì–´ì„œ í•´ë‹¹ í”„ë¡œì íŠ¸ ë¹„ìš©ì€ ëª¨ë‘ **ê°œì¸ ì‚¬ë¹„**ë¡œ ì§„í–‰í•˜ê³  ìžˆìŠµë‹ˆë‹¤. ì„œë²„ëŠ” AWS 3ê°œì›” ë¬´ë£Œ í”Œëžœì„ ì‚¬ìš©í•˜ê³  ìžˆì–´ **22ë…„ 8**ì›”ë¶€í„°ëŠ” **í•´ë‹¹ URL ì ‘ì†ì´ ë¶ˆê°€**í•  ìˆ˜ë„ ìžˆìŠµë‹ˆë‹¤.
 
-## 2) Web È­¸é ±¸¼º
+## 2) Web í™”ë©´ êµ¬ì„±
 
- 1. **¸ÞÀÎ È­¸é**
+ 1. **ë©”ì¸ í™”ë©´**
  
 ![main_jpg](https://user-images.githubusercontent.com/84084372/174231183-6f34ce39-f180-480c-a075-0678677bf190.jpg)
-**¼ÒÀçÁö**¿Í **Á¤·ùÀå¸í**À» ÀÔ·ÂÇÏ°í **³ë¼±¸í**(»ý·« °¡´É)À» ÀÔ·ÂÇÏ¸é ¼±ÅÃ µÈ Á¤º¸¿¡ ´ëÇÑ »ó¼¼ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.
+**ì†Œìž¬ì§€**ì™€ **ì •ë¥˜ìž¥ëª…**ì„ ìž…ë ¥í•˜ê³  **ë…¸ì„ ëª…**(ìƒëžµ ê°€ëŠ¥)ì„ ìž…ë ¥í•˜ë©´ ì„ íƒ ëœ ì •ë³´ì— ëŒ€í•œ ìƒì„¸íŽ˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.
 
 <br>
 
- 2. **»ó¼¼ È­¸é**
+
+ 2. **ìƒì„¸ í™”ë©´**
  
 ![detail](https://user-images.githubusercontent.com/84084372/174231536-f2c2078c-7c75-4c77-9ef5-d993620c9854.jpg)
-¼±ÅÃµÈ Á¤º¸¿¡ ´ëÇÑ **Åë°è·®**À» Ãâ·ÂÇÕ´Ï´Ù.
+ì„ íƒëœ ì •ë³´ì— ëŒ€í•œ **í†µê³„ëŸ‰**ì„ ì¶œë ¥í•©ë‹ˆë‹¤.
 
 <br>
 <br>
 
 # 2. Model
 
-»ç¿ë DataSet ¹× Feature, ÇÐ½À ¹æ¹ý¿¡ ´ëÇÑ °£·«ÇÑ Á¤º¸ÀÔ´Ï´Ù.
+ì‚¬ìš© DataSet ë° Feature, í•™ìŠµ ë°©ë²•ì— ëŒ€í•œ ê°„ëžµí•œ ì •ë³´ìž…ë‹ˆë‹¤.
 
 ## 1) DataSet
-|                |ÃâÃ³                          |³»¿ë                         |
+|                |ì¶œì²˜                          |ë‚´ìš©                         |
 |----------------|-------------------------------|-----------------------------|
-|`±¤ÁÖ_¹ö½º_ÀÌ¿ë°´.csv`|°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|±¤ÁÖ±¤¿ª½Ã 3~4¿ù ¹ö½º ÀÌ¿ë°´            |
-|`±¤ÁÖ±¤¿ª½Ã_Á¤·ùÀå_À§Ä¡Á¤º¸.csv`          |°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|Á¤·ùÀåÀÇ °æµµ, À§µµ µ¥ÀÌÅÍ|
-|`Google Geocoding API`          |Google Maps|ÇØ´ç °æ/À§µµÀÇ ÁÖ¼Ò Á¤º¸¸¦ ¹ÝÈ¯ÇØ ÁÜ.|
-|`±¤ÁÖ±¤¿ª½Ã_ÇàÁ¤Áö¿ª_ÀÎ±¸.csv`          |KOSIS|±¤ÁÖ±¤¿ª½ÃÀÇ ÇàÁ¤Áö¿ª(¶Ë)º° ÀÎ±¸ µ¥ÀÌÅÍ¼Â|
-|`¹ýÁ¤µ¿_ÇàÁ¤µ¿_¸ÊÇÎ.csv`          |°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|Àü±¹ ¹ýÁ¤µ¿°ú ÇàÁ¤µ¿ ¸ÊÇÎ µ¥ÀÌÅÍ|
-|`2018~2022_°øÈÞÀÏ_Á¤º¸.csv`          |°ø°øµ¥ÀÌÅÍ Æ÷ÅÐ|2018~2022 °øÈÞÀÏ Á¤º¸|
-|`±â»óÃ»_±â»ó_µ¥ÀÌÅÍ.csv`          |±â»óÀÚ·á°³¹æÆ÷ÅÐ|±â¿Â, ½Àµµ, °­¼ö·®, Ç³¼Ó|
+|`ê´‘ì£¼_ë²„ìŠ¤_ì´ìš©ê°.csv`|ê³µê³µë°ì´í„° í¬í„¸|ê´‘ì£¼ê´‘ì—­ì‹œ 3~4ì›” ë²„ìŠ¤ ì´ìš©ê°            |
+|`ê´‘ì£¼ê´‘ì—­ì‹œ_ì •ë¥˜ìž¥_ìœ„ì¹˜ì •ë³´.csv`          |ê³µê³µë°ì´í„° í¬í„¸|ì •ë¥˜ìž¥ì˜ ê²½ë„, ìœ„ë„ ë°ì´í„°|
+|`Google Geocoding API`          |Google Maps|í•´ë‹¹ ê²½/ìœ„ë„ì˜ ì£¼ì†Œ ì •ë³´ë¥¼ ë°˜í™˜í•´ ì¤Œ.|
+|`ê´‘ì£¼ê´‘ì—­ì‹œ_í–‰ì •ì§€ì—­_ì¸êµ¬.csv`          |KOSIS|ê´‘ì£¼ê´‘ì—­ì‹œì˜ í–‰ì •ì§€ì—­(ë˜¥)ë³„ ì¸êµ¬ ë°ì´í„°ì…‹|
+|`ë²•ì •ë™_í–‰ì •ë™_ë§µí•‘.csv`          |ê³µê³µë°ì´í„° í¬í„¸|ì „êµ­ ë²•ì •ë™ê³¼ í–‰ì •ë™ ë§µí•‘ ë°ì´í„°|
+|`2018~2022_ê³µíœ´ì¼_ì •ë³´.csv`          |ê³µê³µë°ì´í„° í¬í„¸|2018~2022 ê³µíœ´ì¼ ì •ë³´|
+|`ê¸°ìƒì²­_ê¸°ìƒ_ë°ì´í„°.csv`          |ê¸°ìƒìžë£Œê°œë°©í¬í„¸|ê¸°ì˜¨, ìŠµë„, ê°•ìˆ˜ëŸ‰, í’ì†|
 
 
 ## 2) Train Feature
 
  - Distance
-	 - ±¤ÁÖ±¤¿ª½Ã ÁÖ¿ä Á¤·ùÀå¿¡ ´ëÇÑ °Å¸®Á¤º¸
+	 - ê´‘ì£¼ê´‘ì—­ì‹œ ì£¼ìš” ì •ë¥˜ìž¥ì— ëŒ€í•œ ê±°ë¦¬ì •ë³´
  - Population
-	 - ÇØ´ç ¼ÒÀçÁö(µ¿)ÀÇ ÀÎ±¸ Á¤º¸
+	 - í•´ë‹¹ ì†Œìž¬ì§€(ë™)ì˜ ì¸êµ¬ ì •ë³´
  - Weekday
-	 - ¿äÀÏ One-Hot Encoding)
+	 - ìš”ì¼ One-Hot Encoding)
  - Mean & Sum
-	 - ÁÖ¿ä º¯¼öÀÇ ¿ä¾à Åë°è·®
+	 - ì£¼ìš” ë³€ìˆ˜ì˜ ìš”ì•½ í†µê³„ëŸ‰
  - Congestion
-	 - ÁÖ¿ä º¯¼öº° Å¾½Â°´ Min-Max Scaling
+	 - ì£¼ìš” ë³€ìˆ˜ë³„ íƒ‘ìŠ¹ê° Min-Max Scaling
  - Weekday & Holiday
-	 - ÁÖ¸» ¹× °øÈÞÀÏ ¿©ºÎ
+	 - ì£¼ë§ ë° ê³µíœ´ì¼ ì—¬ë¶€
  - Weather data
-	 - ¿Âµµ, ½Àµµ, °­¼ö·®, Ç³¼Ó µ¥ÀÌÅÍ
+	 - ì˜¨ë„, ìŠµë„, ê°•ìˆ˜ëŸ‰, í’ì† ë°ì´í„°
  - Label Encoding
-	 - ÁÖ¿ä º¯¼ö Label Encoding °ª
+	 - ì£¼ìš” ë³€ìˆ˜ Label Encoding ê°’
 
 ## 3) Train Model
-¸ðµ¨ ÇÐ½À °úÁ¤Àº ¹ÝÀÚµ¿ ML ¶óÀÌºê·¯¸®ÀÎ PycaretÀ» ÀÌ¿ëÇÏ¿´½À´Ï´Ù.
+ëª¨ë¸ í•™ìŠµ ê³¼ì •ì€ ë°˜ìžë™ ML ë¼ì´ë¸ŒëŸ¬ë¦¬ì¸ Pycaretì„ ì´ìš©í•˜ì˜€ìŠµë‹ˆë‹¤.
 <br>
 
 #### I. Find Best Model
-	R square °ªÀ» ±âÁØÀ¸·Î Áöµµ ÇÐ½À ¶óÀÌºê·¯¸®ÀÇ ¼º´É °è»ê Best 3 ModelÀ» ¼±ÅÃÇÔ
+	R square ê°’ì„ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ í•™ìŠµ ë¼ì´ë¸ŒëŸ¬ë¦¬ì˜ ì„±ëŠ¥ ê³„ì‚° Best 3 Modelì„ ì„ íƒí•¨
 
 #### II. HyperParameter Tuning
-	Best 3 Model¿¡ ´ëÇØ¼­ Random Search ¹æ½ÄÀ¸·Î ÇÏÀÌÆÛ ÆÄ¶ó¹ÌÅÍ Æ©´× ÁøÇà
+	Best 3 Modelì— ëŒ€í•´ì„œ Random Search ë°©ì‹ìœ¼ë¡œ í•˜ì´í¼ íŒŒë¼ë¯¸í„° íŠœë‹ ì§„í–‰
 
 #### III. Model Blending
 	Best 3 Model Blending
 
 #### IV. Model Ensemble
-	¹è±ë ¹æ½ÄÀ¸·Î ¾Ó»óºí ÁøÇà
+	ë°°ê¹… ë°©ì‹ìœ¼ë¡œ ì•™ìƒë¸” ì§„í–‰
 
-## 4) Model ¼º´É Æò°¡
-fold °ªÀ» 10À¸·Î ÇÏ¿© k-fold ±³Â÷°ËÁõÀ» ÇØÁÖ¾ú½À´Ï´Ù.
+## 4) Model ì„±ëŠ¥ í‰ê°€
+fold ê°’ì„ 10ìœ¼ë¡œ í•˜ì—¬ k-fold êµì°¨ê²€ì¦ì„ í•´ì£¼ì—ˆìŠµë‹ˆë‹¤.
 
 ![image](https://user-images.githubusercontent.com/84084372/174237056-c7c61f6a-51d8-40c6-8205-0c0e41e47b9e.png)
 
@@ -102,46 +103,46 @@ fold °ªÀ» 10À¸·Î ÇÏ¿© k-fold ±³Â÷°ËÁõÀ» ÇØÁÖ¾ú½À´Ï´Ù.
 
 # 3. Web
 
-## 1) »ç¿ë Server ¹× DB
+## 1) ì‚¬ìš© Server ë° DB
 
-| ¼­¹ö/DB | ³»¿ë |
+| ì„œë²„/DB | ë‚´ìš© |
 |--|--|
-| Å¬¶ó¿ìµå ½Ã½ºÅÛ | AWS Lightsail |
+| í´ë¼ìš°ë“œ ì‹œìŠ¤í…œ | AWS Lightsail |
 | Web Server | Nginx |
 | WSGI Server | Gunicorn |
 | DB | PostgreSQL |
 | Application | Django |
 
-¿ì¼±, **Å¬¶ó¿ìµå ½Ã½ºÅÛ**À¸·Î´Â **AWS Lightsail**À» »ç¿ëÇØ ÁÖ¾ú½À´Ï´Ù. AWS°¡ ºñ½Î±âµµ ÇÏ°í »ç¿ë ¹æ¹ýÀÌ ¾î·Æ´Ù´Â ´ÜÁ¡ÀÌ ÀÖÁö¸¸, **LightSail**ÀÌ ÀÌ ´ÜÁ¡µéÀ» ¸ðµÎ º¸¿ÏÇØ ÁÙ ¼ö ÀÖ±â¿¡ Å¬¶ó¿ìµå ¼­¹ö·Î´Â AWSÀÇ ¶óÀÌÆ® ¼¼ÀÏÀ» Ã¤ÅÃÇÏ¿´½À´Ï´Ù.
-ÇÑ ´Þ **5´Þ·¯** ¿ä±ÝÀÇ ¼­¹ö¸¦ ±¸ÀÔÇÏ¿´´Âµ¥ AWS¿¡¼­ **3°³¿ù ¹«·á ÇÃ·£**À» Áö¿øÇØÁà¼­ Áö±ÝÀº ¹«·á·Î »ç¿ëÇÏ°í ÀÖ½À´Ï´Ù.
+ìš°ì„ , **í´ë¼ìš°ë“œ ì‹œìŠ¤í…œ**ìœ¼ë¡œëŠ” **AWS Lightsail**ì„ ì‚¬ìš©í•´ ì£¼ì—ˆìŠµë‹ˆë‹¤. AWSê°€ ë¹„ì‹¸ê¸°ë„ í•˜ê³  ì‚¬ìš© ë°©ë²•ì´ ì–´ë µë‹¤ëŠ” ë‹¨ì ì´ ìžˆì§€ë§Œ, **LightSail**ì´ ì´ ë‹¨ì ë“¤ì„ ëª¨ë‘ ë³´ì™„í•´ ì¤„ ìˆ˜ ìžˆê¸°ì— í´ë¼ìš°ë“œ ì„œë²„ë¡œëŠ” AWSì˜ ë¼ì´íŠ¸ ì„¸ì¼ì„ ì±„íƒí•˜ì˜€ìŠµë‹ˆë‹¤.
+í•œ ë‹¬ **5ë‹¬ëŸ¬** ìš”ê¸ˆì˜ ì„œë²„ë¥¼ êµ¬ìž…í•˜ì˜€ëŠ”ë° AWSì—ì„œ **3ê°œì›” ë¬´ë£Œ í”Œëžœ**ì„ ì§€ì›í•´ì¤˜ì„œ ì§€ê¸ˆì€ ë¬´ë£Œë¡œ ì‚¬ìš©í•˜ê³  ìžˆìŠµë‹ˆë‹¤.
 
-**À¥ ¼­¹ö**·Î´Â ÀÏ¹ÝÀûÀ¸·Î Django¿Í ¸¹ÀÌ »ç¿ëÇÏ´Â **Nginx**¸¦ »ç¿ëÇÏ¿´½À´Ï´Ù.
+**ì›¹ ì„œë²„**ë¡œëŠ” ì¼ë°˜ì ìœ¼ë¡œ Djangoì™€ ë§Žì´ ì‚¬ìš©í•˜ëŠ” **Nginx**ë¥¼ ì‚¬ìš©í•˜ì˜€ìŠµë‹ˆë‹¤.
 
-¶ÇÇÑ, µ¿Àû À¥ÆäÀÌÁö¸¦ Ã³¸®ÇÒ **WSGI ¼­¹ö**·Î´Â **gunicorn**À» Ã¤ÅÃÇÏ¿´½À´Ï´Ù.
+ë˜í•œ, ë™ì  ì›¹íŽ˜ì´ì§€ë¥¼ ì²˜ë¦¬í•  **WSGI ì„œë²„**ë¡œëŠ” **gunicorn**ì„ ì±„íƒí•˜ì˜€ìŠµë‹ˆë‹¤.
 
-À§½ºÅ° ¼­¹ö ¾îÇÃ¸®ÄÉÀÌ¼ÇÀ¸·Î´Â »ç¿ëÇÏ±â Æí¸®ÇÑ ¿Ï¼ºÇü ÇÁ·¹ÀÓ¿öÅ© **Django**¸¦ »ç¿ëÇÏ¿´½À´Ï´Ù.
+ìœ„ìŠ¤í‚¤ ì„œë²„ ì–´í”Œë¦¬ì¼€ì´ì…˜ìœ¼ë¡œëŠ” ì‚¬ìš©í•˜ê¸° íŽ¸ë¦¬í•œ ì™„ì„±í˜• í”„ë ˆìž„ì›Œí¬ **Django**ë¥¼ ì‚¬ìš©í•˜ì˜€ìŠµë‹ˆë‹¤.
 
-**Nginx**°¡ Á¤Àû ¿äÃ»À» Ã³¸®ÇÏ°í µ¿Àû ¿äÃ»Àº **gunicorn**ÀÌ Àå°í¿¡ ³Ñ°ÜÁà¼­ Ã³¸®ÇÏ´Â ¹æ½ÄÀ¸·Î À¥ÀÌ µ¿ÀÛÇÏ°í ÀÖ½À´Ï´Ù.
+**Nginx**ê°€ ì •ì  ìš”ì²­ì„ ì²˜ë¦¬í•˜ê³  ë™ì  ìš”ì²­ì€ **gunicorn**ì´ ìž¥ê³ ì— ë„˜ê²¨ì¤˜ì„œ ì²˜ë¦¬í•˜ëŠ” ë°©ì‹ìœ¼ë¡œ ì›¹ì´ ë™ìž‘í•˜ê³  ìžˆìŠµë‹ˆë‹¤.
 
 
 ## 2) Back-End Flow Chart
 
 ![image](https://user-images.githubusercontent.com/84084372/174237817-a7e9fb91-9fdc-47e8-b5f3-f1efaea05290.png)
 
-¿ì¼±, ÆÄÀÌ½ã È¯°æ¿¡¼­ ÇÐ½ÀÀ» ¸¶Ä£ ¸ðµ¨À» **pickleÆÄÀÏ**·Î ÀúÀåÇÏ¿© ¼­¹ö¿¡ ÀúÀåÇØµÓ´Ï´Ù.
+ìš°ì„ , íŒŒì´ì¬ í™˜ê²½ì—ì„œ í•™ìŠµì„ ë§ˆì¹œ ëª¨ë¸ì„ **pickleíŒŒì¼**ë¡œ ì €ìž¥í•˜ì—¬ ì„œë²„ì— ì €ìž¥í•´ë‘¡ë‹ˆë‹¤.
 
-ÀÌÈÄ Django È¯°æÀÇ **ViewÇÔ¼ö**¿¡, pickle ÆÄÀÏÀ» ºÒ·¯¿Í **predict**ÇÏ´Â ¾Ë°í¸®ÁòÀ» ¹Ì¸® ÀÛ¼ºÇØµÎ°í, »ç¿ëÀÚ°¡ urlÀ» ¿äÃ»ÇÏ¸é **ViewÇÔ¼ö**¸¦ È£ÃâÇÏ¿© **html**·Î ³Ñ°ÜÁÖ´Â ÇüÅÂ·Î À¥ÀÌ µ¿ÀÛÇÕ´Ï´Ù.
+ì´í›„ Django í™˜ê²½ì˜ **Viewí•¨ìˆ˜**ì—, pickle íŒŒì¼ì„ ë¶ˆëŸ¬ì™€ **predict**í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜ì„ ë¯¸ë¦¬ ìž‘ì„±í•´ë‘ê³ , ì‚¬ìš©ìžê°€ urlì„ ìš”ì²­í•˜ë©´ **Viewí•¨ìˆ˜**ë¥¼ í˜¸ì¶œí•˜ì—¬ **html**ë¡œ ë„˜ê²¨ì£¼ëŠ” í˜•íƒœë¡œ ì›¹ì´ ë™ìž‘í•©ë‹ˆë‹¤.
 
 
 <br>
 <br>
 
 
-# 4. È°¿ë ¹æ¾È
+# 4. í™œìš© ë°©ì•ˆ
 
 
-¾Õ¼­ º¸¿©µå·È´ø À¥Àº Á¦°¡ Á¦½ÃÇÏ´Â ¸ðµ¨ È°¿ë ¹æ¾ÈÀÇ ÀÏºÎÀÌ°í, ÀÌ¿Ü¿¡µµ ÇØ´ç ¸ðµ¨À» È°¿ëÇÒ ¼ö ÀÖ´Â ¹æ¾ÈÀº ¸¹ÀÌ ÀÖÀ» °ÍÀÔ´Ï´Ù.
+ì•žì„œ ë³´ì—¬ë“œë ¸ë˜ ì›¹ì€ ì œê°€ ì œì‹œí•˜ëŠ” ëª¨ë¸ í™œìš© ë°©ì•ˆì˜ ì¼ë¶€ì´ê³ , ì´ì™¸ì—ë„ í•´ë‹¹ ëª¨ë¸ì„ í™œìš©í•  ìˆ˜ ìžˆëŠ” ë°©ì•ˆì€ ë§Žì´ ìžˆì„ ê²ƒìž…ë‹ˆë‹¤.
 
-¸ðµ¨À» **¹ö½º Àü±¤ÆÇ ½Ã½ºÅÛ**°ú ¿¬µ¿ÇÏ¿© Àü±¤ÆÇ¿¡ Á¤·ùÀå È¥Àâµµ¸¦ Á¦°øÇÒ ¼öµµ ÀÖ°í,
+ëª¨ë¸ì„ **ë²„ìŠ¤ ì „ê´‘íŒ ì‹œìŠ¤í…œ**ê³¼ ì—°ë™í•˜ì—¬ ì „ê´‘íŒì— ì •ë¥˜ìž¥ í˜¼ìž¡ë„ë¥¼ ì œê³µí•  ìˆ˜ë„ ìžˆê³ ,
 
-»ç¿ëÀÚ°¡ Á¢±ÙÇÏ±â Æí¸®ÇÏµµ·Ï **¾Û**ÀÌ³ª **Ãªº¿**À» Ãâ½ÃÇÏ´Â ¹æÇâµµ »ý°¢Áß¿¡ ÀÖ½À´Ï´Ù.
+ì‚¬ìš©ìžê°€ ì ‘ê·¼í•˜ê¸° íŽ¸ë¦¬í•˜ë„ë¡ **ì•±**ì´ë‚˜ **ì±—ë´‡**ì„ ì¶œì‹œí•˜ëŠ” ë°©í–¥ë„ ìƒê°ì¤‘ì— ìžˆìŠµë‹ˆë‹¤.
