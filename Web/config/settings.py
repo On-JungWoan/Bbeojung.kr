@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-&h35+acd+6*y5mh=&w=zf6ne%^v045&d(lk8%%g%8n#n_#vz%8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['43.200.56.192']
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['43.200.56.192']
 
 
 # Application definition
@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'PASSWORD': 'dhswjddhks1!',
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -110,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
