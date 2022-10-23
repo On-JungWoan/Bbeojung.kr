@@ -1,9 +1,9 @@
 import os
-from pycaret.regression import load_model, predict_model
+import joblib
 
 MODEL_PATH = 'C:/Users/user/Desktop/bj/Bbeojung.kr/Web/Model'
-MODEL_NAME = 'lgbm_first'
+MODEL_NAME = 'lgbm_second.pkl'
 
 
-model = load_model(os.path.join(MODEL_PATH, MODEL_NAME))
+model = joblib.load(os.path.join(MODEL_PATH, MODEL_NAME))
 model
