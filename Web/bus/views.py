@@ -10,12 +10,20 @@ import pandas as pd
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
+# from pycaret.regression import *
+
 #
 import joblib
 #
 import datetime # 날짜시간 모듈
 from datetime import date, datetime, timedelta
 from .models import *
+
+from django.views.generic import View
+
+class MyView(View):
+    def get(self, request):
+        return render(request, "main/index.html")
 
 def about(request):
     a = [1,2,3,4]
