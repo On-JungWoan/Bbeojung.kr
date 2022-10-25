@@ -1,4 +1,6 @@
 # .idea
 # *.pyc
 # __pycache__
-# Private/
+Private/
+.pub
+.vscode/
