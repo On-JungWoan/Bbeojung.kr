@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -7,7 +8,7 @@
     <title>Pricing Table - ClassiGrids Classified Ads and Listing Website Template</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'main/assets/images/favicon.svg' %}" />
     <!-- Place favicon.ico in the root directory -->
 
     <!-- Web Font -->
@@ -17,12 +18,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
     <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/LineIcons.2.0.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/glightbox.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/main.css' %}" />
 
 </head>
 
@@ -54,7 +55,7 @@
                     <div class="nav-inner">
                         <nav class="navbar navbar-expand-lg">
                             <a class="navbar-brand" href="index.html">
-                                <img src="assets/images/logo/logo.svg" alt="Logo">
+                                <img src="{% static 'main/assets/images/logo/logo.svg' %}" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -447,11 +448,11 @@
     </a>
 
     <!-- ========================= JS here ========================= -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/tiny-slider.js"></script>
-    <script src="assets/js/glightbox.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{% static 'main/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'main/assets/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'main/assets/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'main/assets/js/main.js' %}"></script>
 </body>
 
 </html>

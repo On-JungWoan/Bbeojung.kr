@@ -83,10 +83,10 @@
       <li class="nav-heading">버스 선택</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#Dong-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link " data-bs-target="#Dong-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>{{ station }}</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="Dong-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="Dong-nav" class="nav-content  " data-bs-parent="#sidebar-nav">
           {% for b in bus|dictsort:'r' %}
             {% if b.name == station %}
             {% ifchanged %}
@@ -141,21 +141,21 @@
 
              <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
+              <div class="card info-card confusion">
                 <div class="card-body">
-                  <h5 class="card-title">정류장 평균 탑승객 <span>| {{ station }}</span></h5>
+                  <h5 class="card-title">실시간 정류장 혼잡도 <span>| {{ station }}</span></h5>
 
-                  <div class="d-flex align-items-center">
+                  <div align="center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-geo-alt-fill"></i>
+                      <i class="bi bi-people-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{ total|floatformat }}명</h6>
-
+                      <br><h6>매우 혼잡</h6>
                     </div>
                   </div>
-                  <p class="card-text text-muted">
-                    <br>해당 정류장 평균 대기인원을 나타냅니다.
+
+                  <p class="card-text text-muted" align="center">
+                    <br>실시간 대기 인원 : {{ total|floatformat }}명
                   </p>
                 </div>
 
@@ -164,20 +164,22 @@
 
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
+              <div class="card info-card quiet">
                 <div class="card-body">
-                  <h5 class="card-title">버스 평균 탑승객 <span>| {{ route }}</span></h5>
+                  <h5 class="card-title">예상 버스 혼잡도 <span>| {{ route }}</span></h5>
 
-                  <div class="d-flex align-items-center">
+                  <div align="center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-geo-alt"></i>
+                      <i class="bi bi-people-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{ mean_sum.8|floatformat }}명</h6>
-
+                      <br><h6>원활⠀</h6>
                     </div>
                   </div>
-                  <p class="card-text text-muted"><br>선택한 버스를 평균적으로 몇 명이 타는지 나타냅니다.</p>
+
+                  <p class="card-text text-muted" align="center">
+                    <br>예상 탑승 인원 : {{ total|floatformat }}명
+                  </p>
                 </div>
 
 
@@ -187,16 +189,16 @@
             <!-- Customers Card -->
             <div class="col-xxl-4 col-xl-12">
 
-              <div class="card info-card customers-card ">
+              <div class="card info-card normal ">
                 <div class="card-body">
                   <h5 class="card-title">버스 하루 총 탑승객 <span>| {{ route }}</span></h5>
 
-                  <div class="d-flex align-items-center">
+                  <div align="center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-people-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{ sum_ }}명</h6>
+                      <br><h6>보통⠀</h6>
                     </div>
                   </div>
 

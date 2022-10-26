@@ -726,6 +726,21 @@ h1, h2, h3, h4, h5, h6 {
   background: #ffecdf;
 }
 
+/* 혼잡도 */
+.dashboard .confusion .card-icon {
+  color: #ff771d;
+  background: #ffecdf;
+}
+.dashboard .normal .card-icon {
+  color: #2eca6a;
+  background: #e0f8e9;
+}
+.dashboard .quiet .card-icon {
+  color: #4154f1;
+  background: #f6f6fe;
+}
+
+
 /* Activity */
 .dashboard .activity {
   font-size: 14px;

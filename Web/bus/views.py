@@ -2,15 +2,19 @@ import numpy as np
 import pandas as pd
 from django.shortcuts import render, redirect
 from .models import *
-from .test import make_infer
+from .functions import make_infer
 
+
+def data(request):
+    return render(request, "detail/old/tables-data.html")
 
 def about(request):
     a = [1,2,3,4]
     context = {
         'a' : a,
     }
-    render(request, "main/about-us.html", context)
+    return render(request, "main/about-us.html", context)
+
 
 def index(request):
     bs = BusInfo.objects.all()
@@ -18,6 +22,7 @@ def index(request):
         'bus' : bs
     }
     return render(request, "main/index.html", context)
+
 
 #
 def info(request, dist, id_, route):
@@ -41,6 +46,7 @@ def info(request, dist, id_, route):
         'total' : 150,
     }
     return render(request, 'detail/index.html', context)
+
 
 #
 def detail(request):
@@ -70,6 +76,7 @@ def detail(request):
     return render(request, 'detail/index.html', context)
 
 
+#
 def search(request):
     if request.method == 'POST':
         station = request.POST.get('query')
