@@ -1,0 +1,372 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>뻐정 : 정류장 정보 제공 시스템</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Web Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static 'main/assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/LineIcons.2.0.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/glightbox.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/assets/css/style.css' %}" />
+
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-fixed-100">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a href="{% url 'bus:main' %}" class="logo d-flex align-items-center ">
+                                <img src="{% static 'main/assets/images/logo/80.png' %}" class = "img-fluid " alt="Logo">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="{% url 'bus:main' %}" aria-label="Toggle navigation">Home</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class=" dd-menu collapsed" href="javascript:void(0)"
+                                            data-bs-toggle="collapse" data-bs-target="#submenu-1-5"
+                                            aria-controls="navbarSupportedContent" aria-expanded="false"
+                                            aria-label="Toggle navigation">About us</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-5">
+                                            <li class="nav-item"><a href="https://www.github.com/on-jungwoan/">온정완</a>
+                                            </li>
+                                            <li class="nav-item"><a href="https://www.instagram.com/u_seung_01/">진유승</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!--<li class="nav-item">-->
+                                        <!--<a href="{% url 'bus:main' %}" aria-label="Toggle navigation">추가가능1</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="nav-item">-->
+                                        <!--<a href="{% url 'bus:main' %}" aria-label="Toggle navigation">추가가능2</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="nav-item">-->
+                                        <!--<a href="{% url 'bus:main' %}" aria-label="Toggle navigation">추가가능3</a>-->
+                                    <!--</li>-->
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            <div class="button header-button">
+                                <a href="https://www.instagram.com/tiger_woan/" class="btn">후원하기</a>
+                            </div>
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Hero Area -->
+    <section class="hero-area overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
+                    <div class="hero-text text-center">
+                        <!-- Start Hero Text -->
+                        <div class="section-heading">
+                            <h2 class="wow fadeInUp" data-wow-delay=".3s">뻐스 정보 시스템</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".5s">
+                                버스의 예상 승차인원 및 각종 정보를 제공합니다.<br>
+                                조회하고자 하는 지역, 정류장, 정류장명을 입력하세요. <br>
+                            </p>
+                        </div>
+                        <!-- End Search Form -->
+                        <!-- Start Search Form -->
+                        <form method="post" action="{% url 'bus:detail' %}">
+                            {%csrf_token%}
+
+                            <div class="search-form wow fadeInUp" data-wow-delay=".7s">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-12 p-0">
+                                        <div class="search-input">
+                                            <label for="location"><i class="lni lni-map-marker theme-color"></i></label>
+                                            <select name="location" id="location" onchange="change()">
+                                                <option value="none" selected disabled>소재지</option>
+                                                <option value="동구">동구</option>
+                                                <option value="서구">서구</option>
+                                                <option value="남구">남구</option>
+                                                <option value="북구">북구</option>
+                                                <option value="광산구">광산구</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- 이 부분이 2번 째 select box -->
+                                    <div class="col-lg-3 col-md-3 col-12 p-0">
+                                        <div  class="search-input">
+                                            <!--<label for="dong"><i class="lni lni-grid-alt theme-color"></i></label>-->
+
+                                            <select name="category" id="df">
+                                                <option value="none" selected disabled>정류장명</option>
+                                            </select>
+
+                                            <select name="category" class="displayNone" id="동구" onchange="change_name()">
+                                                <option value="none" selected disabled>정류장명</option>
+                                                {% for b in bus|dictsort:'name' %}
+                                                    {% if b.dist == '동구' %}
+                                                        {% ifchanged %}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
+                                                        </option>
+                                                        {% endifchanged %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+
+                                            <select name="category" class="displayNone" id="서구" onchange="change2_name()">
+                                                <option value="none" selected disabled>정류장명</option>
+                                                {% for b in bus|dictsort:'name' %}
+                                                    {% if b.dist == '서구' %}
+                                                        {% ifchanged %}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
+                                                        </option>
+                                                        {% endifchanged %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <select name="category" class="displayNone" id="남구" onchange="change2_name()">
+                                                <option value="none" selected disabled>정류장명</option>
+                                                {% for b in bus|dictsort:'name' %}
+                                                    {% if b.dist == '남구' %}
+                                                        {% ifchanged %}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
+                                                        </option>
+                                                        {% endifchanged %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <select name="category" class="displayNone" id="북구" onchange="change2_name()">
+                                                <option value="none" selected disabled>정류장명</option>
+                                                {% for b in bus|dictsort:'name' %}
+                                                    {% if b.dist == '북구' %}
+                                                        {% ifchanged %}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
+                                                        </option>
+                                                        {% endifchanged %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <select name="category" class="displayNone" id="광산구" onchange="change2_name()">
+                                                <option value="none" selected disabled>정류장명</option>
+                                                {% for b in bus|dictsort:'name' %}
+                                                    {% if b.dist == '광산구' %}
+                                                        {% ifchanged %}
+                                                        <option value="{{ b.i }}">
+                                                            ({{ b.i }}) {{ b.name }}
+                                                        </option>
+                                                        {% endifchanged %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- -->
+
+                                    <div class="col-lg-4 col-md-4 col-12 p-0">
+                                        <div class="search-input">
+                                            <label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
+                                            <input type="text" name="keyword" id="keyword" placeholder="노선명을 입력해주세요(생략 가능)">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-12 p-0">
+                                        <div class="search-btn button">
+                                            <button class="btn" type="submit"><i class="lni lni-search-alt"></i> Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- End Search Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Area -->
+
+
+
+
+
+
+    <!-- Start How Works Area -->
+    <section class="how-works section" style="background-color: #fff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">How it Works</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">특정 버스의 예상 승차인원을 예측하고,<br>
+                        사용자에게 서비스 하기까지의 과정을 소개합니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-12">
+                    <!-- Start Single Work -->
+                    <div class="single-work wow fadeInUp" data-wow-delay=".2s">
+                        <span class="serial">01</span>
+                        <h3>Pickle File Import</h3>
+                        <p>Python에서 사전에 미리 학습시킨<br>ML Model의 Pickle File을 Import 합니다.</p>
+                    </div>
+                    <!-- End Single Work -->
+                </div>
+                <div class="col-lg-4 col-md-4 col-12">
+                    <!-- Start Single Work -->
+                    <div class="single-work wow fadeInUp" data-wow-delay=".4s">
+                        <span class="serial">02</span>
+                        <h3>Calculation</h3>
+                        <p>Django 내부 View 함수에서 연산을 진행하여<br>Predict Value를 산출합니다.</p>
+                    </div>
+                    <!-- End Single Work -->
+                </div>
+                <div class="col-lg-4 col-md-4 col-12">
+                    <!-- Start Single Work -->
+                    <div class="single-work wow fadeInUp" data-wow-delay=".6s">
+                        <span class="serial">03</span>
+                        <h3>Show</h3>
+                        <p>Django Shorcut의 Render 메소드를 사용하여<br>html로 예측값을 넘겨줍니다.</p>
+                    </div>
+                    <!-- End Single Work -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End How Works Area -->
+
+
+
+    <!-- Start Footer Area -->
+    <footer class="footer">
+
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <ul class="footer-bottom-links">
+                                    <li><a href="https://www.github.com/on-jungwoan">온정완</a></li>
+                                    <li><a href="https://www.instagram.com/u_seung_01/">진유승</a></li>
+                                </ul>
+                                <p class="copyright-text">Designed and Developed by <a href="https://graygrids.com/"
+                                        rel="nofollow" target="_blank">GrayGrids</a>
+                                </p>
+                                <ul class="footer-social">
+                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static 'main/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'main/assets/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'main/assets/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'main/assets/js/main.js' %}"></script>
+    <script defer src="{% static 'main/assets/js/script.js' %}"></script>
+    <script type="text/javascript">
+        //========= Category Slider 
+        tns({
+            container: '.category-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: false,
+            controls: true,
+            controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 2,
+                },
+                768: {
+                    items: 4,
+                },
+                992: {
+                    items: 5,
+                },
+                1170: {
+                    items: 6,
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

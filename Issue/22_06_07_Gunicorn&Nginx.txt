@@ -1,0 +1,15 @@
+<issue : Gunicorn 유닉스 소켓방식 AWS 서버 등록 이슈 : 2022-06-07 >
+
+  sudo systemctl start bus.service를 해도 아무 것도 뜨지 않음
+  sudo systemctl start nginx 해서 url에 접속하면 Bad GateWay가 뜸
+
+    < try >
+      - 참고한 교재는 python의 venv를 사용하여 가상환경을 만들었지만 나는 conda를 사용하여 가상환경을 생성함
+      - 따라서 ExecStart 경로를 나에게 맞게 바꾸어줌( /home/ubuntu/anaconda3/envs/bus_venvs/bin/gunicorn ) : 일부 해결
+      - 
+
+    < 해결 : 2022-06-07 >
+      - 원래 sudo system start bus.service를 해도 아무것도 안뜸. (교재에는 떠야한다고 써있어서 혼동되었던 듯)
+      - sudo systemctl status bus로 상태 확인가능 (이 때 뜨는 정보가 교재에 써있는 정보)
+      - start nginx 했을 때 Bad GateWay가 떴었던 것은 bus.service 안켜놨기 때문.
+      - 결론 : bus.service enable 후 restart로 bus.service 켜주고, 그 후 nginx까지 켜줘야 함.

@@ -1,0 +1,16 @@
+<issue : Predict Error : 2022-06-07 >
+
+  원시 데이터 상에서 하루 평균 1~2명 탑승하던 정류장의 예상 승차인원이 100~200명으로 예측됨.
+
+
+    < try >
+      - feature에 이상이 있는 것으로 판단하여 들어가는 feature 값을 로그창에 띄워봄
+      - 나온 Feature 값을 바탕으로 jupyter notebook에서 새롭게 predict를 해보려고 했지만 pandas 버전 오류 발생
+      - pickle 파일을 dump 했던 가상 환경 버전과 anaconda의 달라서 생긴 오류임
+      - conda list로 pandas 버전 확인 후 conda prompt에서 pandas 버전 변경
+      - predict 해보았더니 동일하게 predict 값으로 100명 이상이 출력되길래 Feature를 확인해봄
+      - Mean과 sum이 뒤바뀌어 있었음
+
+    < 해결 : 2022-06-07 >
+      - try-except 예외 처리를 하면서 새롭게 코딩하며 생긴 착오였음
+      - Mean과 Sum을 다시 바꾸어줘서 해결
