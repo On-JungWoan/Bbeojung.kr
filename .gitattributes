@@ -1,2 +1,0 @@
-train_2000.parquet filter=lfs diff=lfs merge=lfs -text
-D:/projects/Bbeojung.kr/Data/final_dataset/train_2000.parquet filter=lfs diff=lfs merge=lfs -text
