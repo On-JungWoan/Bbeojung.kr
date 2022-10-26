@@ -195,7 +195,7 @@
 
                   <div align="center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people-fill"></i>
+                      <i class="bi bi-alarm-fill"></i>
                     </div>
                     <div class="ps-3">
                       <br><h6>8분 남음⠀</h6>
@@ -377,61 +377,190 @@
 
 
             <div class="card-body pb-0">
-              <h5 class="card-title">평균 탑승객 <span>| 2022년 3~4월</span></h5>
+              <h5 class="card-title">운행시간표 <span>| {{ route }}</span></h5>
 
-              <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
-
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
-                    legend: {
-                      data: ['현재 정류장( {{ station }} )', '광주광역시 평균']
-                    },
-                    radar: {
-                      // shape: 'circle',
-                      indicator: [{
-                          name: '정류장별',
-                          max: 25
-                        },
-                        {
-                          name: '노선별',
-                          max: 10
-                        },
-                        {
-                          name: '정류장_노선별',
-                          max: 32
-                        },
-                        {
-                          name: '정류장_노선_요일별',
-                          max: 40
-                        },
-                        {
-                          name: '정류장_요일별',
-                          max: 37
-                        },
-                        {
-                          name: '노선_요일별',
-                          max: 12
-                        }
-                      ]
-                    },
-                    series: [{
-                      name: 'Budget vs spending',
-                      type: 'radar',
-                      data: [{
-                          value: [{{ mean_sum.2 }}, {{ mean_sum.0 }}, {{ mean_sum.8 }}
-                          , {{ mean_sum.12 }}, {{ mean_sum.10 }}, {{ mean_sum.6 }}],
-                          name: '현재 정류장( {{ station }} )'
-                        },
-                        {
-                          value: [2.174269, 2.756711, 2.288147, 2.351128, 2.239644, 2.720263],
-                          name: '광주광역시 평균'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <div align="center">기점<br>폭스존(대창운수)</div>
+                    </th>
+                    <th scope="col">
+                      <div align="center">종점<br>송원대(송암공단)</div>
+                    </th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>   
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>                  
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>   
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr> 
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>                           
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>   
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>              
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>   
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>   
+                  <tr>
+                    <td><div align="center">05:40</div></th>
+                    <td><div align="center">05:40</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">05:55</div></th>
+                    <td><div align="center">05:55</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:10</div></th>
+                    <td><div align="center">06:10</div></td>
+                  </tr>       
+                  <tr>
+                    <td><div align="center">06:34</div></th>
+                    <td><div align="center">06:42</div></td>
+                  </tr>                                                               
+                                                                            
+                </tbody>
+              </table>              
 
             </div>
           </div><!-- End Budget Report -->
