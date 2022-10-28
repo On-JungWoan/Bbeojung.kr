@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{% static 'main/assets/css/glightbox.min.css' %}" />
     <link rel="stylesheet" href="{% static 'main/assets/css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'main/assets/css/style.css' %}" />
-
+    <link rel="stylesheet" href="{% static 'main/assets/css/kakaomap.css' %}" />
 </head>
 
 <body>
@@ -123,7 +123,6 @@
                         <div class="section-heading">
                             <h2 class="wow fadeInUp" data-wow-delay=".3s">뻐정 : 버스종합정보시스템(BIS)</h2>
                             <p class="wow fadeInUp" data-wow-delay=".5s">
-                                버스의 예상 승차인원 및 각종 정보를 제공합니다.<br>
                                 조회하고자 하는 정류장을 선택해주세요. <br>
                             </p>
                         </div>
@@ -131,24 +130,19 @@
                     </div>
                 </div>             
             </div>
-
             <div class="row pt-5">
-                <div class="col">
-                    <div class="wow fadeInUp"  data-wow-delay=".7s" id="map" style="width:auto;height:650px;"></div>
-                </div>
-                <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{ key }}"></script>
-                <script>
-                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                        mapOption = {
-                            center: new kakao.maps.LatLng(37.56764, 126.97717), // 지도의 중심좌표
-                            level: 3, // 지도의 확대 레벨
-                            mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
-                        }; 
+                <div class="map_wrap wow fadeInUp" data-wow-delay=".5s">
+                    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div> 
 
-                    // 지도를 생성한다 
-                    var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-                </script>   
+                    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+                    <div class="custom_zoomcontrol radius_border"> 
+                        <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+                        <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+                    </div>
+                    <div class="current_location radius_border">
+                        <p><button onclick="setBounds()"><img src="{% static 'main/assets/images/location.png' %}" width="100%"></button></p>                        
+                    </div>
+                </div>    
             </div>
         </div>
     </section>
@@ -416,6 +410,8 @@
             }
         });
     </script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{ key }}"></script>
+    <script src="{% static 'main/assets/js/kakaomap.js' %}"></script>
 </body>
 
 </html>

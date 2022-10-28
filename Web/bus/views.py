@@ -21,7 +21,7 @@ def index(request):
     bs = BusInfo.objects.all()
     context = {
         'bus' : bs,
-        'key' : map_appkey
+        'key' : MAP_APP_KEY
     }
     return render(request, "main/index.html", context)
 
