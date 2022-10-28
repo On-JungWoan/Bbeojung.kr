@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 
-from Private.secret import *
+# from Private.secret import *
 from lightgbm import LGBMRegressor
 import joblib
 import numpy as np
