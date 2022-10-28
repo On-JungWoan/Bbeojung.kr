@@ -3,6 +3,7 @@ import pandas as pd
 from django.shortcuts import render, redirect
 from .models import *
 from .functions import make_infer
+from secret import *
 
 
 def data(request):
@@ -19,7 +20,8 @@ def about(request):
 def index(request):
     bs = BusInfo.objects.all()
     context = {
-        'bus' : bs
+        'bus' : bs,
+        'key' : map_appkey
     }
     return render(request, "main/index.html", context)
 

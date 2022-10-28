@@ -4,3 +4,4 @@ Private/
 .pub
 .vscode/
 *.pyc
+secret.py
