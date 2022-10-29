@@ -188,7 +188,7 @@
 
                             <!-- 이 부분이 2번 째 select box -->
                             <div class="col-lg-4">
-                                <div  class="search-input" id="route">
+                                <div  class="search-input">
                                     <!--<label for="dong"><i class="lni lni-grid-alt theme-color"></i></label>-->
 
                                     <select name="category" id="df">
@@ -263,7 +263,7 @@
                             <div class="col">
                                 <div class="search-input">
                                     <label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
-                                    <input id="direct_search" type="text" name="keyword" id="keyword" placeholder="또는 정류장 직접입력" onchange="test()">
+                                    <input id="direct_search" type="text" name="keyword" id="keyword" placeholder="또는 정류장 직접입력" onchange="inputChange()">
                                 </div>
                             </div>
                         </div>
@@ -374,7 +374,7 @@
         function inputChange() {
             const value = document.getElementById('direct_search');
             const target1 = document.getElementById('dist');
-            const target2 = document.getElementById('route');
+            const target2 = document.getElementById('df');
 
             target1.disabled = false;
             target2.disabled = false;
