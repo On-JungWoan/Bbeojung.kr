@@ -971,7 +971,7 @@ ol {
 /* Section Title */
 .section-title {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 10px;
   padding: 0 300px;
   position: relative;
   z-index: 5;
@@ -1000,8 +1000,9 @@ ol {
 }
 
 .section-title p {
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 20px;
+  font-weight: 600;
+  display: block; 
 }
 
 .section-title.align-right {
@@ -2021,7 +2022,7 @@ ol {
 /* Hero Search Form */
 .search-form {
   margin-top: 60px;
-  background: #fff3;
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 6px;
   padding: 30px;
   padding-right: 45px;

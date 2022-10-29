@@ -69,19 +69,11 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ms-auto">
                                     <li class="nav-item">
-                                        <a href="{% url 'bus:main' %}" aria-label="Toggle navigation">Home</a>
+                                        <a href="#hero-area" aria-label="Toggle navigation">Home</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class=" dd-menu collapsed" href="javascript:void(0)"
-                                            data-bs-toggle="collapse" data-bs-target="#submenu-1-5"
-                                            aria-controls="navbarSupportedContent" aria-expanded="false"
-                                            aria-label="Toggle navigation">About us</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-5">
-                                            <li class="nav-item"><a href="https://www.github.com/on-jungwoan/">온정완</a>
-                                            </li>
-                                            <li class="nav-item"><a href="https://www.instagram.com/u_seung_01/">진유승</a></li>
-                                        </ul>
+                                        <a href="#search"><strong>직접 검색</strong></a>
                                     </li>
 
                                     <!--<li class="nav-item">-->
@@ -111,7 +103,7 @@
 
 
     <!-- Start Hero Area -->
-    <section class="hero-area overlay">
+    <section id="hero-area" class="hero-area overlay">
         <div class="container">
             <div class="row">
             </div>
@@ -133,6 +125,21 @@
             <div class="row pt-5">
                 <div class="map_wrap wow fadeInUp" data-wow-delay=".5s">
                     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div> 
+                    
+                    <div id="menu_wrap" class="bg_white">
+                        <div class="option">
+                            <div>
+                                <form onsubmit="searchPlaces(); return false;">
+                                    키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
+                                    <button type="submit">검색하기</button> 
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        <ul id="placesList"></ul>
+                        <div id="pagination"></div>
+                    </div>
+
 
                     <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
                     <div class="custom_zoomcontrol radius_border"> 
@@ -140,7 +147,7 @@
                         <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
                     </div>
                     <div class="current_location radius_border">
-                        <p><button onclick="setBounds()"><img src="{% static 'main/assets/images/location.png' %}" width="100%"></button></p>                        
+                        <p><button onclick="setBounds()"><img src="{% static 'main/assets/images/location_bold.png' %}" width="65%"></button></p>                        
                     </div>
                 </div>    
             </div>
@@ -149,188 +156,137 @@
     <!-- End Hero Area -->            
 
 <!-- Start How Works Area -->
-    <section class="how-works section" style="background-color: #fff;">
+    <section id="search" class="how-works section" style="background-color: #fff;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">How it Works</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">특정 버스의 예상 승차인원을 예측하고,<br>
-                        사용자에게 서비스 하기까지의 과정을 소개합니다.</p>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">직접 검색</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">조회하고자 하는 정류장의 정보를 입력해주세요</p>
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-md-12 col-12">
-                    <div class="hero-text text-center">
-                        <!-- Start Search Form -->
-                        <form method="post" action="{% url 'bus:detail' %}">
-                            {%csrf_token%}
-
-                            <div class="search-form wow fadeInUp" data-wow-delay=".7s">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-12 p-0">
-                                        <div class="search-input">
-                                            <label for="location"><i class="lni lni-map-marker theme-color"></i></label>
-                                            <select name="location" id="location" onchange="change()">
-                                                <option value="none" selected disabled>소재지</option>
-                                                <option value="동구">동구</option>
-                                                <option value="서구">서구</option>
-                                                <option value="남구">남구</option>
-                                                <option value="북구">북구</option>
-                                                <option value="광산구">광산구</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <!-- 이 부분이 2번 째 select box -->
-                                    <div class="col-lg-3 col-md-3 col-12 p-0">
-                                        <div  class="search-input">
-                                            <!--<label for="dong"><i class="lni lni-grid-alt theme-color"></i></label>-->
-
-                                            <select name="category" id="df">
-                                                <option value="none" selected disabled>정류장명</option>
-                                            </select>
-
-                                            <select name="category" class="displayNone" id="동구" onchange="change_name()">
-                                                <option value="none" selected disabled>정류장명</option>
-                                                {% for b in bus|dictsort:'name' %}
-                                                    {% if b.dist == '동구' %}
-                                                        {% ifchanged %}
-                                                        <option value="{{ b.i }}">
-                                                            ({{ b.i }}) {{ b.name }}
-                                                        </option>
-                                                        {% endifchanged %}
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </select>
-
-                                            <select name="category" class="displayNone" id="서구" onchange="change2_name()">
-                                                <option value="none" selected disabled>정류장명</option>
-                                                {% for b in bus|dictsort:'name' %}
-                                                    {% if b.dist == '서구' %}
-                                                        {% ifchanged %}
-                                                        <option value="{{ b.i }}">
-                                                            ({{ b.i }}) {{ b.name }}
-                                                        </option>
-                                                        {% endifchanged %}
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </select>
-                                            <select name="category" class="displayNone" id="남구" onchange="change2_name()">
-                                                <option value="none" selected disabled>정류장명</option>
-                                                {% for b in bus|dictsort:'name' %}
-                                                    {% if b.dist == '남구' %}
-                                                        {% ifchanged %}
-                                                        <option value="{{ b.i }}">
-                                                            ({{ b.i }}) {{ b.name }}
-                                                        </option>
-                                                        {% endifchanged %}
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </select>
-                                            <select name="category" class="displayNone" id="북구" onchange="change2_name()">
-                                                <option value="none" selected disabled>정류장명</option>
-                                                {% for b in bus|dictsort:'name' %}
-                                                    {% if b.dist == '북구' %}
-                                                        {% ifchanged %}
-                                                        <option value="{{ b.i }}">
-                                                            ({{ b.i }}) {{ b.name }}
-                                                        </option>
-                                                        {% endifchanged %}
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </select>
-                                            <select name="category" class="displayNone" id="광산구" onchange="change2_name()">
-                                                <option value="none" selected disabled>정류장명</option>
-                                                {% for b in bus|dictsort:'name' %}
-                                                    {% if b.dist == '광산구' %}
-                                                        {% ifchanged %}
-                                                        <option value="{{ b.i }}">
-                                                            ({{ b.i }}) {{ b.name }}
-                                                        </option>
-                                                        {% endifchanged %}
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!-- -->
-
-                                    <div class="col-lg-4 col-md-4 col-12 p-0">
-                                        <div class="search-input">
-                                            <label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
-                                            <input type="text" name="keyword" id="keyword" placeholder="노선명을 입력해주세요(생략 가능)">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-12 p-0">
-                                        <div class="search-btn button">
-                                            <button class="btn" type="submit"><i class="lni lni-search-alt"></i> Search</button>
-                                        </div>
-                                    </div>
+                <form method="post" action="{% url 'bus:detail' %}">
+                    {%csrf_token%}
+                    <div class="search-form wow fadeInUp" data-wow-delay=".7s">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <div class="search-input" id="dist">
+                                    <label for="location"><i class="lni lni-map-marker theme-color"></i></label>
+                                    <select name="location" id="location" onchange="change()">
+                                        <option value="none" selected disabled>소재지</option>
+                                        <option value="동구">동구</option>
+                                        <option value="서구">서구</option>
+                                        <option value="남구">남구</option>
+                                        <option value="북구">북구</option>
+                                        <option value="광산구">광산구</option>
+                                    </select>
                                 </div>
                             </div>
-                        </form>
-                        <!-- End Search Form -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End How Works Area -->
 
+                            <!-- 이 부분이 2번 째 select box -->
+                            <div class="col-lg-4">
+                                <div  class="search-input" id="route">
+                                    <!--<label for="dong"><i class="lni lni-grid-alt theme-color"></i></label>-->
+
+                                    <select name="category" id="df">
+                                        <option value="none" selected disabled>정류장명</option>
+                                    </select>
+
+                                    <select name="category" class="displayNone" id="동구" onchange="change_name()">
+                                        <option value="none" selected disabled>정류장명</option>
+                                        {% for b in bus|dictsort:'name' %}
+                                            {% if b.dist == '동구' %}
+                                                {% ifchanged %}
+                                                <option value="{{ b.i }}">
+                                                    ({{ b.i }}) {{ b.name }}
+                                                </option>
+                                                {% endifchanged %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+
+                                    <select name="category" class="displayNone" id="서구" onchange="change2_name()">
+                                        <option value="none" selected disabled>정류장명</option>
+                                        {% for b in bus|dictsort:'name' %}
+                                            {% if b.dist == '서구' %}
+                                                {% ifchanged %}
+                                                <option value="{{ b.i }}">
+                                                    ({{ b.i }}) {{ b.name }}
+                                                </option>
+                                                {% endifchanged %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <select name="category" class="displayNone" id="남구" onchange="change2_name()">
+                                        <option value="none" selected disabled>정류장명</option>
+                                        {% for b in bus|dictsort:'name' %}
+                                            {% if b.dist == '남구' %}
+                                                {% ifchanged %}
+                                                <option value="{{ b.i }}">
+                                                    ({{ b.i }}) {{ b.name }}
+                                                </option>
+                                                {% endifchanged %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <select name="category" class="displayNone" id="북구" onchange="change2_name()">
+                                        <option value="none" selected disabled>정류장명</option>
+                                        {% for b in bus|dictsort:'name' %}
+                                            {% if b.dist == '북구' %}
+                                                {% ifchanged %}
+                                                <option value="{{ b.i }}">
+                                                    ({{ b.i }}) {{ b.name }}
+                                                </option>
+                                                {% endifchanged %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                    <select name="category" class="displayNone" id="광산구" onchange="change2_name()">
+                                        <option value="none" selected disabled>정류장명</option>
+                                        {% for b in bus|dictsort:'name' %}
+                                            {% if b.dist == '광산구' %}
+                                                {% ifchanged %}
+                                                <option value="{{ b.i }}">
+                                                    ({{ b.i }}) {{ b.name }}
+                                                </option>
+                                                {% endifchanged %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- -->
+
+                            <div class="col">
+                                <div class="search-input">
+                                    <label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
+                                    <input id="direct_search" type="text" name="keyword" id="keyword" placeholder="또는 정류장 직접입력" onchange="test()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pt-5">
+                            <div class="col">
+                                <div class="search-btn button">
+                                    <button class="btn" type="submit"><i class="lni lni-search-alt"></i> Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- End Search Form -->
+            </div>
 
             
-
-
-
-
-
-
-    <!-- Start How Works Area -->
-    <section class="how-works section" style="background-color: #fff;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">How it Works</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">특정 버스의 예상 승차인원을 예측하고,<br>
-                        사용자에게 서비스 하기까지의 과정을 소개합니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Work -->
-                    <div class="single-work wow fadeInUp" data-wow-delay=".2s">
-                        <span class="serial">01</span>
-                        <h3>Pickle File Import</h3>
-                        <p>Python에서 사전에 미리 학습시킨<br>ML Model의 Pickle File을 Import 합니다.</p>
-                    </div>
-                    <!-- End Single Work -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Work -->
-                    <div class="single-work wow fadeInUp" data-wow-delay=".4s">
-                        <span class="serial">02</span>
-                        <h3>Calculation</h3>
-                        <p>Django 내부 View 함수에서 연산을 진행하여<br>Predict Value를 산출합니다.</p>
-                    </div>
-                    <!-- End Single Work -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Work -->
-                    <div class="single-work wow fadeInUp" data-wow-delay=".6s">
-                        <span class="serial">03</span>
-                        <h3>Show</h3>
-                        <p>Django Shorcut의 Render 메소드를 사용하여<br>html로 예측값을 넘겨줍니다.</p>
-                    </div>
-                    <!-- End Single Work -->
-                </div>
-            </div>
         </div>
     </section>
     <!-- End How Works Area -->
+
+
+    
 
 
 
@@ -352,10 +308,7 @@
                                         rel="nofollow" target="_blank">GrayGrids</a>
                                 </p>
                                 <ul class="footer-social">
-                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                    <li><a href="https://www.github.com/on-jungwoan"><i class="lni lni-git"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -410,8 +363,28 @@
             }
         });
     </script>
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{ key }}"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{ key }}&libraries=services"></script>
     <script src="{% static 'main/assets/js/kakaomap.js' %}"></script>
+    <script>
+        function test() {
+            const value = document.getElementById('direct_search');
+            value.disabled = true;
+
+        }
+        function inputChange() {
+            const value = document.getElementById('direct_search');
+            const target1 = document.getElementById('dist');
+            const target2 = document.getElementById('route');
+
+            target1.disabled = false;
+            target2.disabled = false;
+
+            if (value != ''){
+                target1.disabled = true;
+                target2.disabled = true;
+            }
+        }
+    </script>
 </body>
 
 </html>

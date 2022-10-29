@@ -12,5 +12,5 @@ urlpatterns = [
     path('detail/search', views.search, name='search'),
     path('detail/<str:dist>+<str:id_>+<str:route>/', views.info, name='info'),
 
-    path('data/', views.data, name='data'),
+    path('test/', views.test, name='test'),
 ]
