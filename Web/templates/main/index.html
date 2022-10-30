@@ -56,7 +56,7 @@
                 <div class="col-fixed-100">
                     <div class="nav-inner">
                         <nav class="navbar navbar-expand-lg">
-                            <a href="{% url 'bus:main' %}" class="logo d-flex align-items-center">
+                            <a href="{% url 'main:index' %}" class="logo d-flex align-items-center">
                                 <img src="{% static 'main/assets/images/logo/new_logo_resize.png' %}" width="140px" class = "img-fluid" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
@@ -76,17 +76,6 @@
                                         <a href="#search"><strong>직접 검색</strong></a>
                                     </li>
 
-                                    <!--<li class="nav-item">-->
-                                        <!--<a href="{% url 'bus:main' %}" aria-label="Toggle navigation">추가가능1</a>-->
-                                    <!--</li>-->
-
-                                    <!--<li class="nav-item">-->
-                                        <!--<a href="{% url 'bus:main' %}" aria-label="Toggle navigation">추가가능2</a>-->
-                                    <!--</li>-->
-
-                                    <!--<li class="nav-item">-->
-                                        <!--<a href="{% url 'bus:main' %}" aria-label="Toggle navigation">추가가능3</a>-->
-                                    <!--</li>-->
                                 </ul>
                             </div> <!-- navbar collapse -->
                             <div class="button header-button">
@@ -122,15 +111,16 @@
                     </div>
                 </div>             
             </div>
+
             <div class="row pt-5">
                 <div class="map_wrap wow fadeInUp" data-wow-delay=".5s">
-                    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div> 
-                    
+                    <div id="map" style="width:100%;height:800px;"></div>
+
                     <div id="menu_wrap" class="bg_white">
                         <div class="option">
                             <div>
-                                <form onsubmit="searchPlaces(); return false;">
-                                    키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
+                                <form action="#" onsubmit="makeMarker();">
+                                    키워드 : <input type="text" value="" id="keyword" size="15"> 
                                     <button type="submit">검색하기</button> 
                                 </form>
                             </div>
@@ -139,7 +129,6 @@
                         <ul id="placesList"></ul>
                         <div id="pagination"></div>
                     </div>
-
 
                     <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
                     <div class="custom_zoomcontrol radius_border"> 
@@ -155,6 +144,7 @@
     </section>
     <!-- End Hero Area -->            
 
+
 <!-- Start How Works Area -->
     <section id="search" class="how-works section" style="background-color: #fff;">
         <div class="container">
@@ -168,7 +158,7 @@
             </div>
 
             <div class="row">
-                <form method="post" action="{% url 'bus:detail' %}">
+                <form method="post" action="{% url 'detail:detail' %}">
                     {%csrf_token%}
                     <div class="search-form wow fadeInUp" data-wow-delay=".7s">
                         <div class="row">
