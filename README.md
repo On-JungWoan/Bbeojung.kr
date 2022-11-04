@@ -1,21 +1,3 @@
----
-title:  "Bbeojung PROJECT REPORT"
-excerpt: "뻐정 : 광주광역시 버스 정보 제공 시스템"
-
-categories:
-  - bbeojung
-tags:
-  - [bbeojung]
-
-published: true
-
-toc: true
-toc_sticky: true
- 
-date: 2022-11-04
-last_modified_at: 2022-11-04
----
-
 ## Contents
 
 - [**Ⅰ. BASIC DATA**](#ⅰ-basic-data)
