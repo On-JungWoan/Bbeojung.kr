@@ -1,10 +1,41 @@
-# PROJECT COMPLETION REPORT
+# Bbeojung PROJECT REPORT
+## Contents
 
-- [**Ⅰ. BASIC DATA**]([#Ⅰ-BASIC-DATA)
+- [**Ⅰ. BASIC DATA**](#ⅰ-basic-data)
 
-- [**Ⅱ. OPENING REMARKS**]([**Ⅱ-OPENING-REMARKS)
+- [**Ⅱ. OPENING REMARKS**](#ⅱ-opening-remarks)
 
-- [**Ⅲ . IMPLEMENTATION DETAILS**](Ⅲ-IMPLEMENTATION-DETAILS)
+- [**Ⅲ . IMPLEMENTATION DETAILS**](#ⅲ--implementation-details)
+
+  1. [Real-time obj. detection](#1-real-time-obj-detection)
+
+      [1.1 Inference process](#11-inference-process)
+
+      [1.2 Visualization inference performance](#12-visualization-inference-performance)
+
+      [1.3 Using multi angle of view (예정)](#13-using-multi-angle-of-view-%EC%98%88%EC%A0%95)
+
+  2. [Bus demand predicting model](#2-bus-demand-predicting-model)
+
+      [2.1 Using data](#21-using-data)
+
+      [2.2 Train feature](#22-train-feature)
+
+
+      [2.3 Ensemble algorithm](#23-ensemble-algorithm)
+
+      [2.4 Hyperparameter tuning](#24-hyperparameter-tuning)
+
+  3. [Web](#3-web)
+
+
+- [**Ⅳ. TEST**](#ⅳ-test)
+
+  1. [Real-time object detection](#1-real-time-object-detection)
+
+  2. [Web](#2-web)
+
+<br>
 
 ## Ⅰ. BASIC DATA
 
