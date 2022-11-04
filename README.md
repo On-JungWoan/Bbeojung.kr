@@ -34,7 +34,9 @@
 - **Summary**
 
 ```
-뻐정은 obj detection 모델과 버스 수요 예측 ML 모델 및 광주광역시 BIS가 결합하여 탄생한 통합 플랫폼입니다. 기존에 광주광역시가 제공한 버스 출발, 도착 예정 정보와 더불어 정류장별 수요 예측을 통해 시민들의 버스 이용 편의를 극대화하고 배차간격, 노선 체계 등의 결정과 같은 의사결정에 도움을 주는 플랫폼입니다.
+뻐정은 obj detection 모델과 버스 수요 예측 ML 모델 및 광주광역시 BIS가 결합하여 탄생한 통합 플랫폼입니다.
+기존에 광주광역시가 제공한 버스 출발, 도착 예정 정보와 더불어 정류장별 수요 예측을 통해 시민들의 버스 이용 편의를 극대화하고
+배차간격, 노선 체계 등의 결정과 같은 의사결정에 도움을 주는 플랫폼입니다.
 ```
 
 - **Objectives/Skills**
@@ -159,8 +161,12 @@ score 개선이 있는 것을 확인 하였음
 
 ### 1. Real-time object detection
 
-<iframe width="700" height="500" src="https://user-images.githubusercontent.com/84084372/199408447-ee91aa5e-6fde-41b1-826b-5508998d791c.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+- **Link**
+
+  "https://user-images.githubusercontent.com/84084372/199408447-ee91aa5e-6fde-41b1-826b-5508998d791c.mp4
 
 ### 2. Web
 
-<iframe width="700" height="500" src="https://user-images.githubusercontent.com/84084372/199414700-e879d07b-c96e-4323-af01-57dbf2152fed.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+- **Link**
+
+  https://user-images.githubusercontent.com/84084372/199414700-e879d07b-c96e-4323-af01-57dbf2152fed.mp4
