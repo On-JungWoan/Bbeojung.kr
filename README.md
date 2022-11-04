@@ -1,4 +1,21 @@
-# Bbeojung PROJECT REPORT
+---
+title:  "Bbeojung PROJECT REPORT"
+excerpt: "뻐정 : 광주광역시 버스 정보 제공 시스템"
+
+categories:
+  - bbeojung
+tags:
+  - [bbeojung]
+
+published: true
+
+toc: true
+toc_sticky: true
+ 
+date: 2022-11-04
+last_modified_at: 2022-11-04
+---
+
 ## Contents
 
 - [**Ⅰ. BASIC DATA**](#ⅰ-basic-data)
@@ -72,8 +89,8 @@
 
 ```
 뻐정은 obj detection 모델과 버스 수요 예측 ML 모델 및 광주광역시 BIS가 결합하여 탄생한 통합 플랫폼입니다.
-기존에 광주광역시가 제공한 버스 출발, 도착 예정 정보와 더불어 정류장별 수요 예측을 통해 시민들의 버스 이용 편의를 극대화하고
-배차간격, 노선 체계 등의 결정과 같은 의사결정에 도움을 주는 플랫폼입니다.
+기존에 광주광역시가 제공한 버스 출발, 도착 예정 정보와 더불어정류장별 수요 예측을 통해
+시민들의 버스 이용 편의를 극대화하고 배차간격, 노선 체계 등의 결정과 같은 의사결정에 도움을 주는 플랫폼입니다.
 ```
 
 - **Objectives/Skills**
@@ -104,7 +121,8 @@ cctv와의 rtsp 통신을 바탕으로 특정 정류장의 real-time 객체 인�
 - Description
 
 ```
-coco 데이터셋으로 pre-train 된 SSD 모델을 obj detection 모델로 채택하였습니다. 또한, real-time 추론을 위해 2가지 최적화를 해주었습니다.
+coco 데이터셋으로 pre-train 된 SSD 모델을 obj detection 모델로 채택하였습니다.
+또한, real-time 추론을 위해 2가지 최적화를 해주었습니다.
 
 1. TensorRT로 변환 후 Engine 모듈 분리
 2. CUDA Stream을 사용한 Memory copy
@@ -152,7 +170,7 @@ feature | description
 기상청 데이터 | 온도, 습도, 풍속, 강수량
 요일 | weekday one-hot encoding
 
-<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199867455-1f0d841a-9c04-4532-8b3b-dccf26ee0c9c.png" width="80%"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199878964-9c115628-f4a0-45fe-84a7-f241cb2f4d7b.png" width="80%"></p>
 
 - Description
 
@@ -163,7 +181,7 @@ score 개선이 있는 것을 확인 하였음
 
 #### 2.3 Ensemble algorithm
 
-![image](https://user-images.githubusercontent.com/84084372/199868294-74b2b2c3-3859-4643-9d85-31d353767dbd.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199868294-74b2b2c3-3859-4643-9d85-31d353767dbd.png"></p>
 
 - Description
 
@@ -178,7 +196,7 @@ score 개선이 있는 것을 확인 하였음
 
 - **Search algorithm**
 
-  random search
+  - random search
 
 - **Score**
 
@@ -188,10 +206,9 @@ score 개선이 있는 것을 확인 하였음
 
 ### 3. Web
 
-![image](https://user-images.githubusercontent.com/84084372/199869772-e937c137-1154-44e0-ac0a-8143a7483439.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199869772-e937c137-1154-44e0-ac0a-8143a7483439.png" style="border: 1px solid black"></p>
 
-![image (1)](https://user-images.githubusercontent.com/84084372/199869766-d1db9833-ea44-43eb-b653-9f453e48ed14.png)
-
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199869766-d1db9833-ea44-43eb-b653-9f453e48ed14.png" style="border: 1px solid black"></p>
 <br>
 
 ## Ⅳ. TEST
