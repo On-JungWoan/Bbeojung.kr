@@ -163,7 +163,7 @@ score 개선이 있는 것을 확인 하였음
 
 - **Link**
 
-  "https://user-images.githubusercontent.com/84084372/199408447-ee91aa5e-6fde-41b1-826b-5508998d791c.mp4
+  https://user-images.githubusercontent.com/84084372/199408447-ee91aa5e-6fde-41b1-826b-5508998d791c.mp4
 
 ### 2. Web
 
