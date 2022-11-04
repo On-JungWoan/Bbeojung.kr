@@ -1,147 +1,166 @@
-# 뻐정 : 정류장 혼잡도 예측 ML Model 개발 및 서비스
+# PROJECT COMPLETION REPORT
 
-<br>
-버스를 타러 정류장에 갔는데 예상치 못하게 사람이 너무 많아 곤욕을 치르셨던 경험 한 번쯤 있으실겁니다.<br>
-그렇다면 **미리 정류장에 사람이 얼마나 있을지 알 수는 없을까?** 하여 시작된 것이 뻐정 프로젝트입니다.
+## Ⅰ. BASIC DATA
 
-특히 22년 5월 2일부터 **실외 마스크 착용 의무화가 해제**됨으로써 정류장처럼 사람이 정적으로 많이 모여있는 곳에 가기를 불안해 하시는 분들이 늘어나고 있습니다.
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199860610-1a075e3f-267b-4314-bdb8-2b224f55c426.png" style="border: 1px solid black"></p>
 
-**뻐정은 이러한 문제점들을 완화**하고 사용자에게 기타 다양한 정보를 제공하기 위해 탄생한 프로젝트입니다.
+- **Project Title**
 
-**Developer : 온정완**
+  - 뻐정 (Bbeojung.kr)
 
-<br>
-<br>
+- **Participation**
 
-# 1. URL 주소 & Web 화면 구성
+  - 개발 : 온정완
 
-## 1) URL 주소 (운영 종료)
+  - 기획/ppt/발표 : 진유승
 
-> **URL : http://bbeojung.kr**
+- **Project Dates**
 
-아직은 지원 받는 곳이 없어서 해당 프로젝트 비용은 모두 **개인 사비**로 진행하고 있습니다. 서버는 AWS 3개월 무료 플랜을 사용하고 있어 **22년 8**월부터는 **해당 URL 접속이 불가**할 수도 있습니다.
+  - 1차 프로토타입 (Jun. 2022 ~ Jul.2022)
 
-## 2) Web 화면 구성
+  - 2차 개선버전 (Oct. 2022 ~ Nov. 2022)
 
- 1. **메인 화면**
- 
-![main_jpg](https://user-images.githubusercontent.com/84084372/174231183-6f34ce39-f180-480c-a075-0678677bf190.jpg)
-**소재지**와 **정류장명**을 입력하고 **노선명**(생략 가능)을 입력하면 선택 된 정보에 대한 상세페이지로 이동합니다.
+- **Detail description link**
 
-<br>
+  - Summary : <https://on-jungwoan.github.io/bbeojung/bbeojung/>
 
-
- 2. **상세 화면**
- 
-![detail](https://user-images.githubusercontent.com/84084372/174231536-f2c2078c-7c75-4c77-9ef5-d993620c9854.jpg)
-선택된 정보에 대한 **통계량**을 출력합니다.
-
-<br>
-<br>
-
-# 2. Model
-
-사용 DataSet 및 Feature, 학습 방법에 대한 간략한 정보입니다.
-
-## 1) DataSet
-|                |출처                          |내용                         |
-|----------------|-------------------------------|-----------------------------|
-|`광주_버스_이용객.csv`|공공데이터 포털|광주광역시 3~4월 버스 이용객            |
-|`광주광역시_정류장_위치정보.csv`          |공공데이터 포털|정류장의 경도, 위도 데이터|
-|`Google Geocoding API`          |Google Maps|해당 경/위도의 주소 정보를 반환해 줌.|
-|`광주광역시_행정지역_인구.csv`          |KOSIS|광주광역시의 행정지역(똥)별 인구 데이터셋|
-|`법정동_행정동_맵핑.csv`          |공공데이터 포털|전국 법정동과 행정동 맵핑 데이터|
-|`2018~2022_공휴일_정보.csv`          |공공데이터 포털|2018~2022 공휴일 정보|
-|`기상청_기상_데이터.csv`          |기상자료개방포털|기온, 습도, 강수량, 풍속|
-
-
-## 2) Train Feature
-
- - Distance
-	 - 광주광역시 주요 정류장에 대한 거리정보
- - Population
-	 - 해당 소재지(동)의 인구 정보
- - Weekday
-	 - 요일 One-Hot Encoding)
- - Mean & Sum
-	 - 주요 변수의 요약 통계량
- - Congestion
-	 - 주요 변수별 탑승객 Min-Max Scaling
- - Weekday & Holiday
-	 - 주말 및 공휴일 여부
- - Weather data
-	 - 온도, 습도, 강수량, 풍속 데이터
- - Label Encoding
-	 - 주요 변수 Label Encoding 값
-
-## 3) Train Model
-모델 학습 과정은 반자동 ML 라이브러리인 Pycaret을 이용하였습니다.
-<br>
-
-#### I. Find Best Model
-	R square 값을 기준으로 지도 학습 라이브러리의 성능 계산 Best 3 Model을 선택함
-
-#### II. HyperParameter Tuning
-	Best 3 Model에 대해서 Random Search 방식으로 하이퍼 파라미터 튜닝 진행
-
-#### III. Model Blending
-	Best 3 Model Blending
-
-#### IV. Model Ensemble
-	배깅 방식으로 앙상블 진행
-
-## 4) Model 성능 평가
-fold 값을 10으로 하여 k-fold 교차검증을 해주었습니다.
-
-![image](https://user-images.githubusercontent.com/84084372/174237056-c7c61f6a-51d8-40c6-8205-0c0e41e47b9e.png)
+  - full description : <https://on-jungwoan.github.io/categories/bbeojung>
 
 
 <br>
-<br>
+
+## Ⅱ. OPENING REMARKS
+
+- **Summary**
+
+```
+뻐정은 obj detection 모델과 버스 수요 예측 ML 모델 및 광주광역시 BIS가 결합하여 탄생한 통합 플랫폼입니다. 기존에 광주광역시가 제공한 버스 출발, 도착 예정 정보와 더불어 정류장별 수요 예측을 통해 시민들의 버스 이용 편의를 극대화하고 배차간격, 노선 체계 등의 결정과 같은 의사결정에 도움을 주는 플랫폼입니다.
+```
+
+- **Objectives/Skills**
+
+  - LGBM
+
+  - SSD Network Model (TRT Engine)
+
+  - CUDA Stream
+
+- **Overview**
+
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199863866-1200ae81-2230-40b6-a0bb-ef9d77731324.png" width="50%" style="border: 1px solid black"></p>
 
 
-# 3. Web
-
-## 1) 사용 Server 및 DB
-
-| 서버/DB | 내용 |
-|--|--|
-| 클라우드 시스템 | AWS Lightsail |
-| Web Server | Nginx |
-| WSGI Server | Gunicorn |
-| DB | PostgreSQL |
-| Application | Django |
-
-우선, **클라우드 시스템**으로는 **AWS Lightsail**을 사용해 주었습니다. AWS가 비싸기도 하고 사용 방법이 어렵다는 단점이 있지만, **LightSail**이 이 단점들을 모두 보완해 줄 수 있기에 클라우드 서버로는 AWS의 라이트 세일을 채택하였습니다.
-한 달 **5달러** 요금의 서버를 구입하였는데 AWS에서 **3개월 무료 플랜**을 지원해줘서 지금은 무료로 사용하고 있습니다.
-
-**웹 서버**로는 일반적으로 Django와 많이 사용하는 **Nginx**를 사용하였습니다.
-
-또한, 동적 웹페이지를 처리할 **WSGI 서버**로는 **gunicorn**을 채택하였습니다.
-
-위스키 서버 어플리케이션으로는 사용하기 편리한 완성형 프레임워크 **Django**를 사용하였습니다.
-
-**Nginx**가 정적 요청을 처리하고 동적 요청은 **gunicorn**이 장고에 넘겨줘서 처리하는 방식으로 웹이 동작하고 있습니다.
-
-
-## 2) Back-End Flow Chart
-
-![image](https://user-images.githubusercontent.com/84084372/174237817-a7e9fb91-9fdc-47e8-b5f3-f1efaea05290.png)
-
-우선, 파이썬 환경에서 학습을 마친 모델을 **pickle파일**로 저장하여 서버에 저장해둡니다.
-
-이후 Django 환경의 **View함수**에, pickle 파일을 불러와 **predict**하는 알고리즘을 미리 작성해두고, 사용자가 url을 요청하면 **View함수**를 호출하여 **html**로 넘겨주는 형태로 웹이 동작합니다.
-
+cctv와의 rtsp 통신을 바탕으로 특정 정류장의 real-time 객체 인식을 진행합니다. 또한, 이 인원 중 특정한 버스에 탑승할 인원이 몇 명이나 되는지 예측합니다. 사용자에게는 위 결과를 원활 / 보통 / 혼잡으로 나누어 제공합니다.
 
 <br>
+
+## Ⅲ . IMPLEMENTATION DETAILS
+
+### 1. Real-time obj. detection
+
+#### 1.1 Inference process
+
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199865040-079bacef-9d0a-4a0a-8bb4-0ae64ce1603e.png"></p>
+
+- Description
+
+```
+coco 데이터셋으로 pre-train 된 SSD 모델을 obj detection 모델로 채택하였습니다. 또한, real-time 추론을 위해 2가지 최적화를 해주었습니다.
+
+1. TensorRT로 변환 후 Engine 모듈 분리
+2. CUDA Stream을 사용한 Memory copy
+```
+
+#### 1.2 Visualization inference performance
+
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199866075-81556b2c-1d10-4648-865b-e955d2b1e090.png"></p>
+
+- Description
+
+```
+1. 기존 ssd 모델 대비 연산속도 약 24배 향상
+2. Precision Reduction에 따른 confidence loss는 거의 없음
+```
+
+#### 1.3 Using multi angle of view (예정)
+
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199866542-09fcacb0-54aa-4489-90f4-5e8a9ca6c50c.png" width="80%"></p>
+
+- Description
+
+```
+객체가 장애물 또는 사람에 가려져서 인식되지 않는 문제를 해결하기 위해 다음과 같은 해결책을 제시합니다.
+
+1. 시범 정류장에 다양한 화각의 cctv를 설치하여 각 화각의 데이터셋을 확보
+2. 해당 데이터셋에 대해 모델 파인튜닝 및 블랜딩
+```
+
+### 2. Bus demand predicting model
+
+#### 2.1 Using data
+
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199867243-ac59cb13-e791-43cc-aa74-11766ad1efb7.png" width="60%"></p>
+
+#### 2.2 Train feature
+
+feature | description
+:--: | :--:
+거리 | 광주광역시 9개 주요 정류장과의 거리
+인구 | 해당 정류장 소재지(동) 주민등록 인구
+통계량 | 주요 변수(정류장명, 노선명, 요일, 월, 시간)에 대한 요약 통계량
+혼잡도 | 주요 변수(정류장명, 노션명, 요일)별 이용승객 min-max scaling
+주말여부 | 주말여부 one-hot encoding
+기상청 데이터 | 온도, 습도, 풍속, 강수량
+요일 | weekday one-hot encoding
+
+<p align="center"><img src="https://user-images.githubusercontent.com/84084372/199867455-1f0d841a-9c04-4532-8b3b-dccf26ee0c9c.png" width="80%"></p>
+
+- Description
+
+```
+모델에 feature를 차례로 넣어보며 score를 파악
+score 개선이 있는 것을 확인 하였음
+```
+
+#### 2.3 Ensemble algorithm
+
+![image](https://user-images.githubusercontent.com/84084372/199868294-74b2b2c3-3859-4643-9d85-31d353767dbd.png)
+
+- Description
+
+```
+초기 모델 RandomForest에서 부스팅 계열 LGBM으로 학습 모델 변경
+
+- 학습 속도 15배 이상 개선
+- error 약 20% 감소
+```
+
+#### 2.4 Hyperparameter tuning
+
+- **Search algorithm**
+
+  random search
+
+- **Score**
+
+  - RMSE : 2.3404
+
+  - R2 : 0.9006
+
+### 3. Web
+
+![image](https://user-images.githubusercontent.com/84084372/199869772-e937c137-1154-44e0-ac0a-8143a7483439.png)
+
+![image (1)](https://user-images.githubusercontent.com/84084372/199869766-d1db9833-ea44-43eb-b653-9f453e48ed14.png)
+
 <br>
 
+## Ⅳ. TEST
 
-# 4. 활용 방안
+### 1. Real-time object detection
 
+<iframe width="700" height="500" src="https://user-images.githubusercontent.com/84084372/199408447-ee91aa5e-6fde-41b1-826b-5508998d791c.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-앞서 보여드렸던 웹은 제가 제시하는 모델 활용 방안의 일부이고, 이외에도 해당 모델을 활용할 수 있는 방안은 많이 있을 것입니다.
+### 2. Web
 
-모델을 **버스 전광판 시스템**과 연동하여 전광판에 정류장 혼잡도를 제공할 수도 있고,
-
-사용자가 접근하기 편리하도록 **앱**이나 **챗봇**을 출시하는 방향도 생각중에 있습니다.
+<iframe width="700" height="500" src="https://user-images.githubusercontent.com/84084372/199414700-e879d07b-c96e-4323-af01-57dbf2152fed.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
