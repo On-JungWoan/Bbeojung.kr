@@ -46,12 +46,6 @@
 
   - 뻐정 (Bbeojung.kr)
 
-- **Participation**
-
-  - 개발 : 온정완
-
-  - 기획/ppt/발표 : 진유승
-
 - **Project Dates**
 
   - 1차 프로토타입 (Jun. 2022 ~ Jul.2022)
